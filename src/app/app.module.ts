@@ -8,6 +8,7 @@ import { TabListComponent } from './tab-list/tab-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { routing } from './app.routes';
+import { IntegralListComponent } from './integral-list/integral-list.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { routing } from './app.routes';
     PersonalCenterComponent,
     OrderListComponent,
     TabListComponent,
-    HomeComponent
+    HomeComponent,
+    IntegralListComponent
   ],
   imports: [
     BrowserModule,

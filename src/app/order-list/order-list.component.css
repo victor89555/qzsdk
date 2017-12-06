@@ -1,0 +1,8 @@
+.order-list-btns {
+  padding: 10px 15px;
+}
+
+.order-list-btns>a{
+  margin-top: 0;
+  margin-right: 10px;
+}

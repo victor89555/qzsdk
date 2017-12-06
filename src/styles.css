@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+/* WeUI style sheet */
+@import '../node_modules/weui/dist/style/weui.css';
+
+/* WeUI Exmple style sheet */
+@import '../node_modules/weui/dist/example/example.css';

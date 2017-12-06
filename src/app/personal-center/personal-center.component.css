@@ -1,0 +1,34 @@
+.personal_hd {
+  padding: 20px 15px;
+}
+
+.personal_hd_img {
+  margin-right: 15px;
+}
+
+.personal_hd_img img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  vertical-align: bottom;
+}
+
+.personal_hd .personal_hd_title {
+  height: 36px;
+  line-height: 36px;
+  font-size: 18px;
+  color: #333333;
+}
+
+.personal_hd .personal_hd_integral {
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.personal_list .weui-cell__hd img {
+  display: block;
+  width: 20px;
+  margin-right: 10px;
+}
