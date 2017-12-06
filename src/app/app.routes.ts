@@ -6,7 +6,7 @@ import { IntegralListComponent } from "./integral-list/integral-list.component";
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'personal',
+    redirectTo: 'integral',
     pathMatch: 'full'
   },
   {

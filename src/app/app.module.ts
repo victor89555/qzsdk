@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 
 import { routing } from './app.routes';
 import { IntegralListComponent } from './integral-list/integral-list.component';
-
+import { OrderListService } from './order-list/order-list.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,9 @@ import { IntegralListComponent } from './integral-list/integral-list.component';
     BrowserModule,
     routing
   ],
-  providers: [],
+  providers: [
+    {provide: 'orderListService', useClass: OrderListService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
