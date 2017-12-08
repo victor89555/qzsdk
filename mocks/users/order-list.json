@@ -1,3 +1,65 @@
 {
-
+  "beginIndex": 0,
+  "endIndex": 2,
+  "firstPage": true,
+  "hasNextPage": false,
+  "hasPrePage": false,
+  "items": [
+    {
+      "marketId": 1,
+      "marketName": "湖头市场",
+      "memberId": 1,
+      "memberName": "小点点",
+      "shopId": 1,
+      "shopName": "银翔放心肉",
+      "tradingTime": "2017-12-03 19:20:15",
+      "payWay": 1,
+      "origAmount": 25.5,
+      "totalAmount": 25.5,
+      "orderLines": [
+        {
+          "productId": 1,
+          "productName": "三层肉",
+          "unitName": "斤",
+          "price": "9.8",
+          "qty": "3.1",
+          "discount": "0",
+          "origAmount": "25.5",
+          "totalAmount": "25.5"
+        }
+      ]
+    },
+    {
+      "marketId": 2,
+      "marketName": "丰泽市场",
+      "memberId": 2,
+      "memberName": "打豆豆",
+      "shopId": 2,
+      "shopName": "阿福豆干",
+      "tradingTime": "2017-12-05 18:20:15",
+      "payWay": 2,
+      "origAmount": 15.5,
+      "totalAmount": 15,
+      "orderLines": [
+        {
+          "productId": 2,
+          "productName": "豆干",
+          "unitName": "斤",
+          "price": "8",
+          "qty": "1.8",
+          "discount": "0",
+          "origAmount": "15.5",
+          "totalAmount": "15"
+        }
+      ]
+    }
+  ],
+  "lastPage": true,
+  "nextPage": 1,
+  "offset": 0,
+  "pageNo": 1,
+  "pageSize": 10,
+  "prePage": 1,
+  "totalCount": 2,
+  "totalPages": 1
 }
