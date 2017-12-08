@@ -12,7 +12,7 @@ export class OrderListService {
   constructor(private http: HttpClient) { }
 
   // GET /order-list
-  getList(): {
+  getList(): Promise<object> {
     return this.http.get(this.api_url)
     .toPromise()
     .then(res => res)

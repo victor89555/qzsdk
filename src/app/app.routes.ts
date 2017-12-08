@@ -1,35 +1,18 @@
-import { Routes, RouterModule } from '@angular/router';
-import { PersonalCenterComponent } from "./personal-center/personal-center.component";
-import { OrderListComponent } from "./order-list/order-list.component";
-import { IntegralListComponent } from "./integral-list/integral-list.component";
+import {Routes} from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'integral',
+    redirectTo: 'users',
     pathMatch: 'full'
   },
   {
-    path: 'personal',
-    component: PersonalCenterComponent,
-    data: {
-      title: '个人中心'
-    }
+    path: 'users',
+    loadChildren: 'app/users/users.module#UsersModule'
   },
   {
-    path: 'order',
-    component: OrderListComponent,
-    data: {
-      title: '订单列表'
-    }
-  },
-  {
-    path: 'integral',
-    component: IntegralListComponent,
-    data: {
-      title: '积分列表'
-    }
+    path: 'shop',
+    loadChildren: 'app/merchant/shop.module#ShopModule'
   }
 ];
 
-export const routing = RouterModule.forRoot(routes);
