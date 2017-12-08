@@ -11,9 +11,5 @@ export class PersonalCenterService extends RebirthHttp {
     super(http);
   }
 
-  @GET("users")
-  getUserInfo(@Query("id") id = 1): Observable<UsersModule[]> {
-    return null;
-  }
 
 }
