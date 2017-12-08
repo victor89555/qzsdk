@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../users.model";
 
 @Component({
   selector: 'app-personal-center',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalCenterComponent implements OnInit {
 
+  user: User
+
   constructor() { }
 
   ngOnInit() {
+    this.user = new User()
+    this.user.name = "用户张三"
+    this.user.integral = 2300
+  }
+
+  getUserInfo(): User {
+    return this.user;
   }
 
 }

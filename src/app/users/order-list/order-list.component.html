@@ -11,36 +11,24 @@
       </div>
     </div>
     
-    <div class="weui-panel weui-panel_access">
+    <div *ngFor="let order of orders" class="weui-panel weui-panel_access">
       <div class="weui-panel__bd">
         <div class="weui-panel weui-panel_access">
           <div class="weui-panel__hd">
-            <p style="font-size: 15px;color: #333;">银翔肉品店</p>
+            <p style="font-size: 15px;color: #333;">{{order.marketName}}</p>
           </div>
           <div class="weui-panel__bd">
             
-            <div class="weui-cell">
+            <div *ngFor="let orderLine of order.orderLines" class="weui-cell">
               <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                 <img src="./assets/img/jiucai.png" style="width: 50px;display: block">
               </div>
               <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">新鲜韭菜</p>
+                <p style="font-size: 15px;color: #333;">{{orderLine.productName}}</p>
               </div>
               <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">3 斤</p>
-                <p style="font-size: 15px;color: #888888;">12.5元</p>
-              </div>
-            </div>
-            <div class="weui-cell">
-              <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src="./assets/img/tudou.png" style="width: 50px;display: block">
-              </div>
-              <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">土豆</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">5 斤</p>
-                <p style="font-size: 15px;color: #888888;">13.8元</p>
+                <p style="font-size: 13px;color: #888888;">{{orderLine.qty}} {{orderLine.unitName}}</p>
+                <p style="font-size: 15px;color: #888888;"><span>{{orderLine.totalAmount}}</span>元</p>
               </div>
             </div>
             
@@ -49,111 +37,13 @@
             
             <div class="weui-cell">
               <div class="weui-cell__bd">
-                <p style="font-size: 13px;color: #888888;">2017-12-05 15:26</p>
+                <p style="font-size: 13px;color: #888888;">{{order.tradingTime}}</p>
               </div>
               <div class="weui-cell__ft">
-                <p style="font-size: 15px;color: red;">￥43.1</p>
+                <p style="font-size: 15px;color: red;">￥<span>{{order.totalAmount}}</span></p>
               </div>
             </div>
             
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="weui-panel weui-panel_access">
-      <div class="weui-panel__bd">
-        <div class="weui-panel weui-panel_access">
-          <div class="weui-panel__hd">
-            <p style="font-size: 15px;color: #333;">银翔肉品店</p>
-          </div>
-          <div class="weui-panel__bd">
-          
-            <div class="weui-cell">
-              <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src="./assets/img/jiucai.png" style="width: 50px;display: block">
-              </div>
-              <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">新鲜韭菜</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">3 斤</p>
-                <p style="font-size: 15px;color: #888888;">12.5元</p>
-              </div>
-            </div>
-            <div class="weui-cell">
-              <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src="./assets/img/tudou.png" style="width: 50px;display: block">
-              </div>
-              <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">土豆</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">5 斤</p>
-                <p style="font-size: 15px;color: #888888;">13.8元</p>
-              </div>
-            </div>
-        
-          </div>
-          <div class="weui-panel__ft">
-          
-            <div class="weui-cell">
-              <div class="weui-cell__bd">
-                <p style="font-size: 13px;color: #888888;">2017-12-05 15:26</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 15px;color: red;">￥43.1</p>
-              </div>
-            </div>
-        
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="weui-panel weui-panel_access">
-      <div class="weui-panel__bd">
-        <div class="weui-panel weui-panel_access">
-          <div class="weui-panel__hd">
-            <p style="font-size: 15px;color: #333;">银翔肉品店</p>
-          </div>
-          <div class="weui-panel__bd">
-          
-            <div class="weui-cell">
-              <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src="./assets/img/jiucai.png" style="width: 50px;display: block">
-              </div>
-              <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">新鲜韭菜</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">3 斤</p>
-                <p style="font-size: 15px;color: #888888;">12.5元</p>
-              </div>
-            </div>
-            <div class="weui-cell">
-              <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src="./assets/img/tudou.png" style="width: 50px;display: block">
-              </div>
-              <div class="weui-cell__bd">
-                <p style="font-size: 15px;color: #333;">土豆</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 13px;color: #888888;">5 斤</p>
-                <p style="font-size: 15px;color: #888888;">13.8元</p>
-              </div>
-            </div>
-        
-          </div>
-          <div class="weui-panel__ft">
-          
-            <div class="weui-cell">
-              <div class="weui-cell__bd">
-                <p style="font-size: 13px;color: #888888;">2017-12-05 15:26</p>
-              </div>
-              <div class="weui-cell__ft">
-                <p style="font-size: 15px;color: red;">￥43.1</p>
-              </div>
-            </div>
-        
           </div>
         </div>
       </div>

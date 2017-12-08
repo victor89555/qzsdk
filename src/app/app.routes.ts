@@ -12,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'shop',
-    loadChildren: 'app/merchant/shop.module#ShopModule'
+    loadChildren: 'app/shop/shop.module#ShopModule'
   }
 ];
 
