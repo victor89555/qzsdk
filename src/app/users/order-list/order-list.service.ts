@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import 'rxjs/add/operator/toPromise';
+import { Observable } from "rxjs/Observable";
+import { Order } from "./order-list.model";
+import 'rxjs/add/operator/map';
+import { GET, Path, POST, Query, RebirthHttp } from "rebirth-http";
+import { Page } from "../../thurder-ng/models/page.model";
 
 @Injectable()
-export class OrderListService {
+export class OrderListService extends RebirthHttp {
 
-  private api_url = 'http://localhost:3000/order-list';
-  private headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-  constructor(private http: HttpClient) { }
-
-  // GET /order-list
-  getList(): Promise<object> {
-    return this.http.get(this.api_url)
-    .toPromise()
-    .then(res => res)
-    .catch(this.handleError);
+  constructor(http: HttpClient) {
+    super(http);
   }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+  // @GET("http://localhost:8000/api/orders")
+  // query(@Query("name") name = "",@Query("pageNo") pageNo = 1,
+  //       @Query("pageSize") pageSize = 10):Observable<Page<any>> {
+  //   return null;
+  // }
+
+  @GET("http://localhost:8000/api/user/orders")
+  getAll(): Observable<Order[]> {
+    return null;
   }
+
 }

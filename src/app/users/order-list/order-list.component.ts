@@ -1,36 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderLine } from "./order-list.model";
+import { OrderListService } from "./order-list.service";
+import {Page} from "../../thurder-ng/models/page.model";
 
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  styleUrls: ['./order-list.component.css'],
+  providers: [OrderListService]
 })
 
 export class OrderListComponent implements OnInit {
 
   orders: Order[] = []
+  orderLines: OrderLine[] = []
+  // page: Page<any> = new Page()
+  // qry_name: string = ""
+  // qry_code: string = ""
 
-  constructor() { }
+  constructor(
+    private orderListService: OrderListService
+  ) {}
 
   ngOnInit() {
-    let order = new Order()
-    order.marketName = '银翔鲜肉店'
-    order.tradingTime = '2017-12-12 12:12'
-    order.totalAmount = 34.5
-    let orderLine = new OrderLine();
-    orderLine.productName = '新鲜韭菜'
-    orderLine.unitName = '斤'
-    orderLine.qty = 5
-    orderLine.totalAmount = 6.5
-    order.orderLines.push(orderLine)
-    let orderLine1 = new OrderLine();
-    orderLine1.productName = '荷兰土豆'
-    orderLine1.unitName = '颗'
-    orderLine1.qty = 6
-    orderLine1.totalAmount = 3.5
-    order.orderLines.push(orderLine1)
-    this.orders.push(order)
+    this.getOrderList()
   }
+
+  getOrderList(){
+    // console.log("getOrderList")
+    this.orderListService.getAll().subscribe(
+      (orders) => {
+        // console.log(orders)
+        this.orders = orders
+      }
+    )
+  }
+
+  // query() {
+  //   this.orderListService.query(this.qry_name, this.page.pageNo).subscribe(
+  //     (page) => {
+  //       this.page = page
+  //     }
+  //   )
+  // }
 
 }

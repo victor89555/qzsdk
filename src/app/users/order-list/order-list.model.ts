@@ -15,6 +15,7 @@ export class OrderLine {
   productId: string;
   productName: string;
   unitName: string;
+  imgUrl: string;
   price: number;
   qty: number;
   discount: string;

@@ -1,5 +1,19 @@
 - request:
-    url: /api/users/userinfo/1$
+    url: /api/user/orders$
+    method: GET
+  response:
+    status: 200
+    latency: 500
+    headers:
+      Content-Type: application/json
+      Access-Control-Allow-Origin: '*'
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+      api-version: "1.0"
+    file: order-list.json
+
+- request:
+    url: /api/user/info$
     method: GET
   response:
     status: 200
@@ -11,4 +25,19 @@
       Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
       api-version: "1.0"
     file: user-info.json
+
+- request:
+    url: /api/user/integrals$
+    method: GET
+  response:
+    status: 200
+    latency: 500
+    headers:
+      Content-Type: application/json
+      Access-Control-Allow-Origin: '*'
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+      api-version: "1.0"
+    file: integral-list.json
+
 

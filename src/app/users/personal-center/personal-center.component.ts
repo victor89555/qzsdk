@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../users.model";
+import { UserInfo } from "./personal-center.model";
+import { PersonalCenterService } from "./personal-center.service";
 
 @Component({
   selector: 'app-personal-center',
   templateUrl: './personal-center.component.html',
-  styleUrls: ['./personal-center.component.css']
+  styleUrls: ['./personal-center.component.css'],
+  providers: [PersonalCenterService]
 })
 export class PersonalCenterComponent implements OnInit {
 
-  user: User
+  user = new UserInfo()
 
-  constructor() { }
+  constructor(
+    private personalCenterService : PersonalCenterService
+  ) { }
 
   ngOnInit() {
-    this.user = new User()
-    this.user.name = "用户张三"
-    this.user.integral = 2300
+    this.getUserInfo()
   }
 
-  getUserInfo(): User {
-    return this.user;
+  getUserInfo() {
+    this.personalCenterService.getAll().subscribe(
+      (user) => {
+        // console.log(user);
+        this.user = user
+      }
+    )
   }
 
 }

@@ -8,6 +8,7 @@ import { routes } from "./app.routes";
 import { RouterModule } from '@angular/router';
 import { ShopModule } from "./shop/shop.module";
 import { CoreModule } from "./core/core.module";
+import { ThurderNGModule } from "./thurder-ng/thurder-ng.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CoreModule } from "./core/core.module";
     CoreModule,
     UsersModule,
     ShopModule,
+    ThurderNGModule,
     RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]

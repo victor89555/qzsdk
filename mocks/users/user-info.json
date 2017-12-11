@@ -2,9 +2,9 @@
   "cardNo": "1222",
   "id": 1,
   "idCardNo": "123",
-  "integralAmount": 100,
+  "integralAmount": 2300,
   "mobile": "13601234567",
-  "name": "用户张三",
+  "userName": "用户张三",
   "nickName": "nick",
   "wechatOpenId": "1234"
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-tab-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabListComponent implements OnInit {
 
-  constructor() { }
+  path = ''
+
+  constructor(public Location: Location) {}
 
   ngOnInit() {
+    this.path = this.Location.path().slice(7)
   }
 
 }
