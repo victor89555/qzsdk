@@ -11,6 +11,7 @@ export class IntegralListService extends RebirthHttp {
 
   constructor(http: HttpClient) {
     super(http);
+    console.log('.');
   }
 
   @GET("http://localhost:8000/api/user/integrals")
