@@ -1,5 +1,3 @@
-
-
 export class Order {
   marketId: string;
   marketName: string;
