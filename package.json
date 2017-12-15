@@ -8,7 +8,7 @@
     "pwa": "node ./build/sw-precache.js",
     "start": "npm-run-all --parallel mock serve",
     "build": "ng build --prod --aot --base-href=/rebirth-admin/ && npm run pwa",
-    "serve": "ng serve",
+    "serve": "ng serve --port=4300",
     "lint": "tslint \"src/**/*.ts\"",
     "lint-fix": "tslint -c tslint.json \"src/**/*.ts\"  --fix",
     "test": "ng lint && ng test --watch=false --single-run=true --code-coverage",

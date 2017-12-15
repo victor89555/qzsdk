@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  ...require('./common.json'),
+  ...require('./production.json'),
+  ...{
+    production: true
+  }
 };

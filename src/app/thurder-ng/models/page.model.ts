@@ -15,7 +15,6 @@ export class Page<T> {
   items: T[]
   loading: boolean = false
 
-
   constructor() {
   }
 

@@ -1,3 +1,20 @@
-{
-
-}
+[
+  {
+    "title": "营业额走势图",
+    "item": {
+      "background" : "#ddd"
+    }
+  },
+  {
+    "title": "菜品统计图",
+    "item": {
+      "background" : "#42bd56"
+    }
+  },
+  {
+    "title": "下单走势图",
+    "item": {
+      "background" : "red"
+    }
+  }
+]
