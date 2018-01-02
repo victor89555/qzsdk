@@ -15,6 +15,8 @@
 - request:
     url: /api/shop/analysis$
     method: GET
+    query:
+      dimension: 0
   response:
     status: 200
     latency: 500
@@ -24,5 +26,36 @@
       Access-Control-Allow-Credentials: true
       Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
       api-version: "1.0"
-    file: analysis-list.json
+    file: market-shop.json
 
+- request:
+    url: /api/shop/analysis$
+    method: GET
+    query:
+      dimension: 1
+  response:
+    status: 200
+    latency: 500
+    headers:
+      Content-Type: application/json
+      Access-Control-Allow-Origin: '*'
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+      api-version: "1.0"
+    file: market-product.json
+
+- request:
+    url: /api/shop/analysis$
+    method: GET
+    query:
+      dimension: 2
+    response:
+      status: 200
+      latency: 500
+      headers:
+        Content-Type: application/json
+        Access-Control-Allow-Origin: '*'
+        Access-Control-Allow-Credentials: true
+        Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+        api-version: "1.0"
+      file: market-time-day.json

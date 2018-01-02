@@ -13,7 +13,7 @@
       <div class="btn-box">
         <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">查询</a>
       </div>
-      <a href="shop/water" class="toggle-box"><img src="./assets/img/icon2/more-g.png" alt=""></a>
+      <a routerLink="/shop/water" class="toggle-box"><img src="./assets/img/icon2/more-g.png" alt=""></a>
     </div>
     
     <!-- 经营分析 -->
@@ -21,13 +21,15 @@
   
       <div class="weui-panel weui-panel_access">
         <div class="weui-panel__hd">
-          <p style="text-align: center;">营业额走势图</p>
+          <p style="text-align: center;">营业额统计</p>
         </div>
         <div class="weui-panel__bd">
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box"></div>
+                <div class="chart-box" echarts [options]="businessOption">
+                  <!--<div></div>-->
+                </div>
               </div>
             </div>
           </div>
@@ -36,13 +38,15 @@
   
       <div class="weui-panel weui-panel_access">
         <div class="weui-panel__hd">
-          <p style="text-align: center;">菜品统计图</p>
+          <p style="text-align: center;">菜品销量统计</p>
         </div>
         <div class="weui-panel__bd">
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box"></div>
+                <div class="chart-box" echarts [options]="greensOption">
+                  <!--<div ></div>-->
+                </div>
               </div>
             </div>
           </div>
@@ -51,13 +55,15 @@
   
       <div class="weui-panel weui-panel_access">
         <div class="weui-panel__hd">
-          <p style="text-align: center;">下单走势图</p>
+          <p style="text-align: center;">商户销量排名</p>
         </div>
         <div class="weui-panel__bd">
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box"></div>
+                <div class="chart-box" echarts [options]="shopOption">
+                  <!--<div></div>-->
+                </div>
               </div>
             </div>
           </div>

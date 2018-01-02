@@ -14,7 +14,7 @@ export class IntegralListService extends RebirthHttp {
     console.log('.');
   }
 
-  @GET("http://localhost:8000/api/user/integrals")
+  @GET("user/integrals")
   getAll(): Observable<Integral[]> {
     return null;
   }

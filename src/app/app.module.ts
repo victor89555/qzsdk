@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ShopModule } from "./shop/shop.module";
 import { CoreModule } from "./core/core.module";
 import { ThurderNGModule } from "./thurder-ng/thurder-ng.module";
+import { NgxEchartsModule } from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ThurderNGModule } from "./thurder-ng/thurder-ng.module";
     UsersModule,
     ShopModule,
     ThurderNGModule,
+    NgxEchartsModule,
     RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]

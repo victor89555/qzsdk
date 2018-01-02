@@ -1,0 +1,29 @@
+[
+  {
+    "reportDate":"2017-12-03",
+    "shopId":15,
+    "shopName":"银翔鲜肉店",
+    "totalMoneyAmount":20,
+    "totalOrderAmount":1,
+    "totalOrigMoneyAmount":200,
+    "totalQty":4
+  },
+  {
+    "reportDate":"2017-12-03",
+    "shopId":16,
+    "shopName":"某某蔬菜店",
+    "totalMoneyAmount":10,
+    "totalOrderAmount":1,
+    "totalOrigMoneyAmount":100,
+    "totalQty":2
+  },
+  {
+    "reportDate":"2017-12-04",
+    "shopId":15,
+    "shopName":"银翔鲜肉店",
+    "totalMoneyAmount":20,
+    "totalOrderAmount":1,
+    "totalOrigMoneyAmount":200,
+    "totalQty":4
+  }
+]

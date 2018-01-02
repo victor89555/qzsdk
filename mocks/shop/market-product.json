@@ -1,0 +1,10 @@
+[
+  {
+    "productId":1,
+    "productName":"苹果1",
+    "totalMoneyAmount":50,
+    "totalOrderAmount":3,
+    "totalOrigMoneyAmount":500,
+    "totalQty":10
+  }
+]

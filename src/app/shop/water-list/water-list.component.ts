@@ -18,11 +18,6 @@ export class WaterListComponent implements OnInit {
       {belong_date:'2017-01-12',amount:2000},
       {belong_date:'2017-01-12',amount:2000},
       {belong_date:'2017-01-12',amount:2000},
-      {belong_date:'2017-01-12',amount:2000},
-      {belong_date:'2017-01-12',amount:2000},
-      {belong_date:'2017-01-12',amount:2000},
-      {belong_date:'2017-01-12',amount:2000},
-      {belong_date:'2017-01-12',amount:2000},
       {belong_date:'2017-01-12',amount:2000}
     ]
   }

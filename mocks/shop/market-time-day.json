@@ -1,0 +1,16 @@
+[
+  {
+    "reportDate":"2017-12-04",
+    "totalMoneyAmount":20,
+    "totalOrderAmount":1,
+    "totalOrigMoneyAmount":200,
+    "totalQty":4
+  },
+  {
+    "reportDate":"2017-12-03",
+    "totalMoneyAmount":30,
+    "totalOrderAmount":2,
+    "totalOrigMoneyAmount":300,
+    "totalQty":6
+  }
+]

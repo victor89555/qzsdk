@@ -1,24 +1,24 @@
 <div *ngIf="path == 'analysis' || path == 'water'" class="weui-tabbar">
-  <a href="shop/analysis" class="weui-tabbar__item weui-bar__item_on">
+  <a routerLink="shop/analysis" class="weui-tabbar__item weui-bar__item_on">
       <span style="display: inline-block;position: relative;">
         <img src="assets/img/icon2/bill-g.png" alt="" class="weui-tabbar__icon">
       </span>
     <p class="weui-tabbar__label">经营情况</p>
   </a>
-  <a href="shop/order" class="weui-tabbar__item">
+  <a routerLink="/shop/order" class="weui-tabbar__item">
     <img src="assets/img/icon2/all-h.png" alt="" class="weui-tabbar__icon">
     <p class="weui-tabbar__label">订单流水</p>
   </a>
 </div>
 <div *ngIf="path == 'order'" class="weui-tabbar">
-  <a href="shop/analysis" class="weui-tabbar__item">
+  <a routerLink="/shop/analysis" class="weui-tabbar__item">
       <span style="display: inline-block;position: relative;">
         <img src="assets/img/icon2/bill-h.png" alt="" class="weui-tabbar__icon">
         <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
       </span>
     <p class="weui-tabbar__label">经营情况</p>
   </a>
-  <a href="shop/order" class="weui-tabbar__item weui-bar__item_on">
+  <a routerLink="/shop/order" class="weui-tabbar__item weui-bar__item_on">
     <img src="assets/img/icon2/all-g.png" alt="" class="weui-tabbar__icon">
     <p class="weui-tabbar__label">订单流水</p>
   </a>
