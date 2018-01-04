@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {
   Market_Time_Day,
   Market_Time_Hour,
-  Market_Product,Market_Shop
+  Market_Product,
+  Market_Shop
 } from "./analysis.model";
 import { AnalysisService } from "./analysis.service";
 
@@ -15,23 +16,23 @@ export class AnalysisComponent implements OnInit {
 
   businessOption: any = {}
   greensOption:any = {}
-  shopOption:any = {}
+  // ShopBusinessTurnoverStatistics = []
+  // SalesStatisticsOfVegetableProducts = []
   constructor() { }
 
   ngOnInit() {
-    this.getBusinessStatistics()
-    this.getGreensSellStatistic()
-    this.getShopSellStatistic()
+    //获取商户营业额统计
+    this.getShopBusinessTurnoverStatistics()
+    //获取商户菜品销量统计
+    this.getSalesStatisticsOfVegetableProducts()
   }
-  // 获取营业额统计
-  getBusinessStatistics(){
+
+  //获取商户营业额统计
+  getShopBusinessTurnoverStatistics() {
     this.businessOption = {
       title: {
         left: '10px',
-        text: '市场营业额'
-      },
-      tooltip: {
-        trigger: 'axis'
+        text: '商户营业额统计'
       },
       legend: {
         top:'100px',
@@ -108,16 +109,13 @@ export class AnalysisComponent implements OnInit {
       ]
     };
   }
-  //获取菜品销量统计
-  getGreensSellStatistic(){
+
+  //获取商户菜品销量统计
+  getSalesStatisticsOfVegetableProducts() {
     this.greensOption = {
       title : {
-        text: '菜品销量分布图',
+        text: '商户菜品销量统计',
         left: '10px'
-      },
-      tooltip : {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
       },
       legend: {
         x : 'center',
@@ -155,63 +153,6 @@ export class AnalysisComponent implements OnInit {
             {value:5, name:'干货'},
             {value:25, name:'水果'}
           ]
-        }
-      ]
-    };
-  }
-  //获取商户销量排名
-  getShopSellStatistic(){
-    this.shopOption = {
-      color: ['#21dbd8'],
-      title : {
-        text: '商户销量排名',
-        left: '0px'
-      },
-      tooltip : {
-        trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-          type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        }
-      },
-      toolbox: {
-        show: true,
-        top: '50px',
-        left: '0px',
-        feature: {
-          dataZoom: {
-            yAxisIndex: 'none'
-          },
-          dataView: {readOnly: false},
-          magicType: {type: ['line', 'bar']},
-          restore: {},
-          saveAsImage: {}
-        }
-      },
-      grid: {
-        top:'150px',
-        left: '10px',
-        right: '20px',
-        bottom: '10px',
-        containLabel: true
-      },
-      xAxis : [
-        {
-          type : 'category',
-          data : ['金商户','李商户','王商户','陈商户','黄商户','蓝陈商户','赵成商户','徐商户','许商户','钟商户']
-        }
-      ],
-      yAxis : [
-        {
-          type : 'value',
-          name : '(万元/年)'
-        }
-      ],
-      series : [
-        {
-          name:'销售金额',
-          type:'bar',
-          barWidth: '50%',
-          data:[320, 310, 295, 267, 234, 221, 220, 215,198,193]
         }
       ]
     };

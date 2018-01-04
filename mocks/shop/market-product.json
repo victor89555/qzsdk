@@ -1,7 +1,15 @@
 [
   {
     "productId":1,
-    "productName":"苹果1",
+    "productName":"苹果",
+    "totalMoneyAmount":50,
+    "totalOrderAmount":3,
+    "totalOrigMoneyAmount":500,
+    "totalQty":10
+  },
+  {
+    "productId":2,
+    "productName":"梨子",
     "totalMoneyAmount":50,
     "totalOrderAmount":3,
     "totalOrigMoneyAmount":500,
