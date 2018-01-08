@@ -27,5 +27,10 @@ export const dicts = {
     0: "注销",
     1: "正常",
     2: "超期"
+  },
+
+  "INTEGRALS_SUBJECT": {
+    11: "购物返积分",
+    21: "优惠券兑换"
   }
 }

@@ -1,5 +1,5 @@
 - request:
-    url: /api/user/orders$
+    url: /api/members/orders$
     method: GET
   response:
     status: 200
@@ -13,7 +13,7 @@
     file: order-list.json
 
 - request:
-    url: /api/user/info$
+    url: /api/members/55$
     method: GET
   response:
     status: 200
@@ -27,7 +27,7 @@
     file: user-info.json
 
 - request:
-    url: /api/user/integrals$
+    url: /api/members/integrals$
     method: GET
   response:
     status: 200

@@ -14,27 +14,23 @@ export class AnalysisService extends RebirthHttp{
   }
 
   @GET("shop/analysis")
-  getMarketTimeDay(@Query("beginTime") beginTime = "", @Query("endTime") endTime = "",
-              @Query("dimension") dimension = 2): Observable<Market_Time_Day[]> {
+  query(@Query("beginTime") beginTime:string = "", @Query("endTime") endTime:string = "",
+        @Query("dimension") dimension:number = null): Observable<any[]> {
     return null;
   }
 
-  @GET("shop/analysis")
-  getMarketTimeHour(@Query("beginTime") beginTime = "", @Query("endTime") endTime = "",
-                   @Query("dimension") dimension = 2): Observable<Market_Time_Hour[]> {
-    return null;
+  getMarketShop(beginTime, endTime): Observable<Market_Shop[]> {
+    return this.query(beginTime, endTime, 0)
   }
 
-  @GET("shop/analysis")
-  getMarketShop(@Query("beginTime") beginTime = "", @Query("endTime") endTime = "",
-                   @Query("dimension") dimension = 0): Observable<Market_Shop[]> {
-    return null;
+  getMarketProduct(beginTime, endTime): Observable<Market_Product[]> {
+    return this.query(beginTime, endTime, 1)
   }
 
-  @GET("shop/analysis")
-  getMarketProduct(@Query("beginTime") beginTime = "", @Query("endTime") endTime = "",
-                   @Query("dimension") dimension = 1): Observable<Market_Product[]> {
-    return null;
+  getMarketTimeDay(beginTime, endTime): Observable<Market_Time_Day[]> {
+    return this.query(beginTime, endTime, 2)
   }
+
+
 
 }

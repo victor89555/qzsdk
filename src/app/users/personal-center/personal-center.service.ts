@@ -14,8 +14,8 @@ export class PersonalCenterService extends RebirthHttp {
     super(http);
   }
 
-  @GET("user/info")
-  getAll(): Observable<UserInfo> {
+  @GET("members/:id")
+  getAll(@Path("id") id: number): Observable<UserInfo> {
     return null;
   }
 

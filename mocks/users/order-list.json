@@ -1,46 +1,100 @@
 [
   {
-    "marketName": "银翔鲜肉店",
-    "tradingTime": "2017-12-12 12:12",
-    "totalAmount": 34.5,
-    "orderLines": [
+    "id":16,
+    "orderLines":[
       {
-        "productName": "新鲜韭菜",
-        "unitName": "斤",
-        "qty": 5,
-        "totalAmount": 6.5,
+        "discount":0,
+        "origAmount":36,
+        "price":0,
+        "productName":"芥兰",
+        "qty":6,
+        "totalAmount":36,
+        "unitName":"斤",
         "imgUrl": "./assets/img/jiucai.png"
-      },
-      {
-        "productName": "荷兰土豆",
-        "unitName": "颗",
-        "qty": 6,
-        "totalAmount": 3.5,
-        "imgUrl": "./assets/img/tudou.png"
       }
-    ]
+    ],
+    "shopName":"松柏银翔牛肉店",
+    "status":0,
+    "tradingTime":"2017-12-12 17:30:17"
   },
   {
-    "marketName": "银翔蔬菜店",
-    "tradingTime": "2017-12-12 12:12",
-    "totalAmount": 34.5,
-    "orderLines": [
+    "id":17,
+    "orderLines":[
       {
-        "productName": "新鲜韭菜",
-        "unitName": "斤",
-        "qty": 5,
-        "totalAmount": 6.5,
+        "discount":0,
+        "origAmount":28,
+        "price":0,
+        "productName":"芥菜",
+        "qty":3,
+        "totalAmount":28,
+        "unitName":"斤",
         "imgUrl": "./assets/img/jiucai.png"
       },
       {
-        "productName": "荷兰土豆",
-        "unitName": "颗",
-        "qty": 6,
-        "totalAmount": 3.5,
+        "discount":0,
+        "origAmount":99,
+        "price":0,
+        "productName":"三层肉",
+        "qty":10,
+        "totalAmount":99,
+        "unitName":"斤",
         "imgUrl": "./assets/img/tudou.png"
       }
-    ]
+    ],
+    "shopName":"松柏银翔牛肉店",
+    "status":0,
+    "tradingTime":"2017-12-12 17:30:25"
+  },
+  {
+    "id":19,
+    "orderLines":[
+      {
+        "discount":0,
+        "origAmount":330,
+        "price":0,
+        "productName":"猪头肉",
+        "qty":20,
+        "totalAmount":330,
+        "imgUrl": "./assets/img/tudou.png"
+      }
+    ],
+    "shopName":"松柏银翔牛肉店",
+    "status":0,
+    "tradingTime":"2017-12-20 17:30:37"
+  },
+  {
+    "id":20,
+    "orderLines":[
+      {
+        "discount":0,
+        "origAmount":570,
+        "price":0,
+        "productName":"芥菜",
+        "qty":8,
+        "totalAmount":570,
+        "imgUrl": "./assets/img/jiucai.png"
+      }
+    ],
+    "shopName":"小琴菜店",
+    "status":0,
+    "tradingTime":"2017-12-12 17:30:25"
+  },
+  {
+    "id":15,
+    "orderLines":[
+      {
+        "discount":0,
+        "origAmount":85,
+        "price":0,
+        "productName":"茼蒿",
+        "qty":8,
+        "totalAmount":85,
+        "unitName":"斤",
+        "imgUrl": "./assets/img/jiucai.png"
+      }
+    ],
+    "shopName":"松柏银翔牛肉店",
+    "status":0,
+    "tradingTime":"2017-12-09 17:30:13"
   }
 ]
-
-

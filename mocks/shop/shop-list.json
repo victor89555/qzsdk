@@ -1,0 +1,35 @@
+[
+  {
+    "beginTime":"2017-12-01",
+    "endTime":"2018-02-08",
+    "id":32,
+    "marketName":"东美市场",
+    "name":"心想杂货店",
+    "status":"NORMAL"
+  },
+  {
+    "beginTime":"2017-12-01",
+    "endTime":"2018-02-08",
+    "id":25,
+    "marketName":"后坂市场",
+    "name":"新鲜海产店",
+    "status":"NORMAL"
+  },
+  {
+    "beginTime": "2017-12-01",
+    "endTime": "2018-02-08",
+    "id": 21,
+    "marketName": "东美市场",
+    "name": "王二牛肉店",
+    "status": "NORMAL"
+  },
+  {
+    "beginTime": "2017-12-01",
+    "endTime": "2018-02-08",
+    "id": 10,
+    "marketName": "湖头市场",
+    "name": "王二牛肉店",
+    "status": "NORMAL"
+  }
+
+]

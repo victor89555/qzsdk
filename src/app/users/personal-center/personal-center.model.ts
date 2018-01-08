@@ -1,10 +1,11 @@
 export class UserInfo {
   "cardNo": string;
+  "headImgUrl": string;
   "id": number;
   "idCardNo": string;
   "integralAmount": number;
   "mobile": string;
-  "userName": string;
+  "name": string;
   "nickName": string;
   "wechatOpenId": string;
 }

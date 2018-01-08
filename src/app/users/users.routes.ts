@@ -3,6 +3,7 @@ import { UsersComponent } from './users.component';
 import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { IntegralListComponent } from './integral-list/integral-list.component';
+import {OrderDetailComponent} from "./order-detail/order-detail.component";
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: 'order',
         component: OrderListComponent
+      },
+      {
+        path: 'detail/:id',
+        component: OrderDetailComponent
       },
       {
         path: 'integral',

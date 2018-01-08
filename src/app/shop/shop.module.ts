@@ -10,6 +10,7 @@ import { AnalysisComponent } from './analysis/analysis.component';
 import { WaterListComponent } from './water-list/water-list.component';
 import { TabListComponent } from './tab-list/tab-list.component';
 import { NgxEchartsModule } from "ngx-echarts";
+import { ShopListComponent } from './shop-list/shop-list.component';
 
 @NgModule ({
   imports: [
@@ -24,6 +25,7 @@ import { NgxEchartsModule } from "ngx-echarts";
     AnalysisComponent,
     WaterListComponent,
     TabListComponent,
+    ShopListComponent,
   ]
 })
 

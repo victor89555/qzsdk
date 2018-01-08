@@ -1,5 +1,7 @@
 export class Integral {
-  name: string;
-  value: number;
-  state: number
+  amount: number;
+  id: string;
+  memberId: string;
+  refObjId: string;
+  subject: string;
 }

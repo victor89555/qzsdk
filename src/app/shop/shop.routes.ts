@@ -3,6 +3,7 @@ import {ShopComponent} from "./shop.component";
 import {AnalysisComponent} from "./analysis/analysis.component";
 import {OrderListComponent} from "./order-list/order-list.component";
 import {WaterListComponent} from "./water-list/water-list.component";
+import {ShopListComponent} from "./shop-list/shop-list.component";
 
 export const routes: Routes = [
   {
@@ -19,12 +20,16 @@ export const routes: Routes = [
         component: AnalysisComponent
       },
       {
-        path: 'order',
+        path: 'water',
+        component: WaterListComponent
+      },
+      {
+        path: 'orders',
         component: OrderListComponent
       },
       {
-        path: 'water',
-        component: WaterListComponent
+        path: 'list',
+        component: ShopListComponent
       }
     ]
   }

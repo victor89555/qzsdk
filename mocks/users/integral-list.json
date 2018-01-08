@@ -1,17 +1,30 @@
 [
   {
-    "name": "购物奖励",
-    "value": 2000,
-    "state": 1
+    "amount":5,
+    "id":1,
+    "memberId":55,
+    "refObjId":2,
+    "subject":11
   },
   {
-    "name": "购物奖励",
-    "value": 1500,
-    "state": 1
+    "amount":11,
+    "id":2,
+    "memberId":55,
+    "refObjId":3,
+    "subject":21
   },
   {
-    "name": "优惠券兑换",
-    "value": 2300,
-    "state": 0
+    "amount":7,
+    "id":1,
+    "memberId":55,
+    "refObjId":4,
+    "subject":11
+  },
+  {
+    "amount":16,
+    "id":2,
+    "memberId":55,
+    "refObjId":5,
+    "subject":21
   }
 ]

@@ -6,13 +6,12 @@
       <div *ngFor="let integral of integralList" class="weui-cell">
         <div class="weui-cell__hd"></div>
         <div class="weui-cell__bd">
-          <p>{{integral.name}}</p>
+          <p>{{integralsDict[integral.subject]}}</p>
         </div>
         <div class="weui-cell__ft integral-in">
-          <span *ngIf="integral.state == 0" style="color: #2ac845;">-
-          <span>{{integral.value}}</span></span>
-          <span *ngIf="integral.state == 1" style="color: #ff0000;">+
-          <span>{{integral.value}}</span></span>
+          <span style="color: #ff0000;">
+            <span>{{integral.amount}}</span>
+          </span>
         </div>
       </div>
       

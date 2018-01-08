@@ -9,6 +9,7 @@ import { IntegralListComponent } from './integral-list/integral-list.component';
 import { UsersComponent } from './users.component';
 import { routes } from './users.routes';
 import { RouterModule } from "@angular/router";
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { RouterModule } from "@angular/router";
     PersonalCenterComponent,
     OrderListComponent,
     TabListComponent,
-    IntegralListComponent
+    IntegralListComponent,
+    OrderDetailComponent
   ]
 })
 export class UsersModule {}

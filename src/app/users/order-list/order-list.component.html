@@ -4,18 +4,21 @@
     <div class="weui-panel weui-panel_access">
       <div class="weui-panel__bd">
         <div class="order-list-btns">
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">历史订单</a>
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">最近三个月</a>
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">最近半年</a>
+          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
+             (click)="getHistoryOrders()">历史订单</a>
+          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
+             (click)="getThreeMonthOrders()">最近三个月</a>
+          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
+             (click)="getHalfYearOrders()">最近半年</a>
         </div>
       </div>
     </div>
     
     <div *ngFor="let order of orders" class="weui-panel weui-panel_access">
-      <div class="weui-panel__bd">
+      <div class="weui-panel__bd" (click)="orderDetail(order.id)" >
         <div class="weui-panel weui-panel_access">
           <div class="weui-panel__hd">
-            <p style="font-size: 15px;color: #333;">{{order.marketName}}</p>
+            <p style="font-size: 15px;color: #333;">{{order.shopName}}</p>
           </div>
           <div class="weui-panel__bd">
             
@@ -40,7 +43,7 @@
                 <p style="font-size: 13px;color: #888888;">{{order.tradingTime}}</p>
               </div>
               <div class="weui-cell__ft">
-                <p style="font-size: 15px;color: red;">￥<span>{{order.totalAmount}}</span></p>
+                <p style="font-size: 15px;">状态：<span>{{order.status}}</span></p>
               </div>
             </div>
             

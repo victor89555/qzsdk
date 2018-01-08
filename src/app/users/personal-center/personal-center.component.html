@@ -6,11 +6,11 @@
         
         <div class="personal_hd weui-cell">
           <div class="personal_hd_img weui-cell__hd">
-            <img src="./assets/img/默认头像.png">
+            <img src="{{user?.headImgUrl || defaultImgUrl}}">
           </div>
           <div class="weui-cell__bd">
-            <p class="personal_hd_title">{{user.userName}}</p>
-            <p class="personal_hd_integral">积分：<span>{{user.integralAmount}}</span></p>
+            <p class="personal_hd_title">{{user?.nickName}}</p>
+            <p class="personal_hd_integral">积分：<span>{{user?.integralAmount}}</span></p>
           </div>
         </div>
         
@@ -22,19 +22,19 @@
         <div class="weui-media-box weui-media-box_small-appmsg">
           <div class="personal_list weui-cells">
             <a class="weui-cell weui-cell_access" routerLink="/users/order">
-              <div class="weui-cell__hd"><img src="./assets/img/icon2/more-g.png" alt=""></div>
+              <div class="weui-cell__hd"><img src="./assets/img/icon2/more-g.png"></div>
               <div class="weui-cell__bd weui-cell_primary">
                 <p>我的订单</p>
               </div>
             </a>
             <a class="weui-cell weui-cell_access" routerLink="/users/integral">
-              <div class="weui-cell__hd"><img src="./assets/img/icon2/all-g.png" alt=""></div>
+              <div class="weui-cell__hd"><img src="./assets/img/icon2/all-g.png"></div>
               <div class="weui-cell__bd weui-cell_primary">
                 <p>积分记录</p>
               </div>
             </a>
             <a class="weui-cell weui-cell_access" routerLink="/users/personal">
-              <div class="weui-cell__hd"><img src="./assets/img/icon2/set-g.png" alt=""></div>
+              <div class="weui-cell__hd"><img src="./assets/img/icon2/set-g.png"></div>
               <div class="weui-cell__bd weui-cell_primary">
                 <p>个人设置</p>
               </div>

@@ -11,10 +11,9 @@ export class IntegralListService extends RebirthHttp {
 
   constructor(http: HttpClient) {
     super(http);
-    console.log('.');
   }
 
-  @GET("user/integrals")
+  @GET("members/integrals")
   getAll(): Observable<Integral[]> {
     return null;
   }
