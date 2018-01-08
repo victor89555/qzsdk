@@ -10,6 +10,7 @@ import { UsersComponent } from './users.component';
 import { routes } from './users.routes';
 import { RouterModule } from "@angular/router";
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     OrderListComponent,
     TabListComponent,
     IntegralListComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    LoginComponent
   ]
 })
 export class UsersModule {}

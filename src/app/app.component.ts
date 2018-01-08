@@ -6,6 +6,8 @@ import {RebirthHttpProvider} from "rebirth-http";
 import {environment} from '../environments/environment';
 import {NotifyService, RebirthNGConfig} from 'rebirth-ng';
 import {HttpErrorResponse} from '@angular/common/http';
+import {WechatService} from "./shared/wechat.service"
+import {WindowRef} from "./thurder-ng/support/window-ref.service"
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,9 @@ export class AppComponent {
               private loadingService: LoadingService,
               private router: Router,
               private rebirthHttpProvider: RebirthHttpProvider,
-              private alertBoxService: NotifyService) {
+              private alertBoxService: NotifyService,
+              private wechatService: WechatService,
+              private winRef: WindowRef) {
     this.applicationSetup();
   }
 
@@ -64,8 +68,14 @@ export class AppComponent {
         }
       })
       .addResponseErrorInterceptor((res: HttpErrorResponse) => {
-        if ([401, 403, 0].includes(res.status)) {
-          this.router.navigateByUrl('/login');
+        if ([401, 0].includes(res.status)) {
+          const errCode = res.error.errCode
+          if (errCode == "INVALID_MEMBER_TOKEN") {
+            this.winRef.document.location.href = this.wechatService.getMemberAuthUrl()
+          } else if (errCode == "INVALID_OPERATOR_TOKEN") {
+            this.winRef.document.location.href = this.wechatService.getOperatorAuthUrl()
+          }
+          // this.router.navigateByUrl('/login');
         }
         if ([400].indexOf(res.status) !== -1) {
           console.log(res.error.msg)

@@ -3,7 +3,13 @@
   "api": {
     "host": "http://localhost:8000/api"
   },
-  "auth": {
-    "host": "http://vito-uic.djws.com.cn/api"
+  "wechat": {
+    "appId": "wxe2eeb4a955d74370"
+  },
+  "member": {
+    "loginUrl": "http://market-cusfe.djws.com.cn/users/login"
+  },
+  "shop": {
+    "loginUrl": "http://market-cusfe.djws.com.cn/shop/login"
   }
 }
