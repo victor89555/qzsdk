@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import { Location} from "@angular/common";
 
 @Component({
   selector: 'app-tab-list',
   templateUrl: './tab-list.component.html',
   styleUrls: ['./tab-list.component.css']
 })
+
 export class TabListComponent implements OnInit {
 
   path = ''

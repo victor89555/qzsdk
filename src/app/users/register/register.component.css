@@ -1,0 +1,9 @@
+.tips {
+  background: #00e679;
+  padding: 10px;
+}
+.tips>p {
+  line-height: 20px;
+  font-size: 13px;
+  text-align: center;
+}

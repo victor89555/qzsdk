@@ -1,4 +1,6 @@
 export class User {
-  name: string;
-  integral: number;
+  token: string
+  userId: string
+  userName: string
+  headImgUrl: string
 }

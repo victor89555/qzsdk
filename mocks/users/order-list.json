@@ -9,8 +9,7 @@
         "productName":"芥兰",
         "qty":6,
         "totalAmount":36,
-        "unitName":"斤",
-        "imgUrl": "./assets/img/jiucai.png"
+        "unitName":"斤"
       }
     ],
     "shopName":"松柏银翔牛肉店",
@@ -27,8 +26,7 @@
         "productName":"芥菜",
         "qty":3,
         "totalAmount":28,
-        "unitName":"斤",
-        "imgUrl": "./assets/img/jiucai.png"
+        "unitName":"斤"
       },
       {
         "discount":0,
@@ -37,8 +35,7 @@
         "productName":"三层肉",
         "qty":10,
         "totalAmount":99,
-        "unitName":"斤",
-        "imgUrl": "./assets/img/tudou.png"
+        "unitName":"斤"
       }
     ],
     "shopName":"松柏银翔牛肉店",
@@ -54,8 +51,7 @@
         "price":0,
         "productName":"猪头肉",
         "qty":20,
-        "totalAmount":330,
-        "imgUrl": "./assets/img/tudou.png"
+        "totalAmount":330
       }
     ],
     "shopName":"松柏银翔牛肉店",
@@ -71,8 +67,7 @@
         "price":0,
         "productName":"芥菜",
         "qty":8,
-        "totalAmount":570,
-        "imgUrl": "./assets/img/jiucai.png"
+        "totalAmount":570
       }
     ],
     "shopName":"小琴菜店",
@@ -89,8 +84,7 @@
         "productName":"茼蒿",
         "qty":8,
         "totalAmount":85,
-        "unitName":"斤",
-        "imgUrl": "./assets/img/jiucai.png"
+        "unitName":"斤"
       }
     ],
     "shopName":"松柏银翔牛肉店",

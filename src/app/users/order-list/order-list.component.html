@@ -3,13 +3,17 @@
     
     <div class="weui-panel weui-panel_access">
       <div class="weui-panel__bd">
-        <div class="order-list-btns">
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
-             (click)="getHistoryOrders()">历史订单</a>
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
-             (click)="getThreeMonthOrders()">最近三个月</a>
-          <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
-             (click)="getHalfYearOrders()">最近半年</a>
+        <div class="order-list-btns" style="text-align: center">
+          <div class="weui-flex">
+            <div class="weui-flex__item">
+              <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
+                 (click)="getThreeMonthOrders()">最近三个月</a>
+            </div>
+            <div class="weui-flex__item">
+              <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default"
+                 (click)="getHistoryOrders()">历史订单</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -24,7 +28,7 @@
             
             <div *ngFor="let orderLine of order.orderLines" class="weui-cell">
               <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <img src={{orderLine.imgUrl}} style="width: 50px;display: block">
+                <img src={{defaultImg}} style="width: 50px;display: block">
               </div>
               <div class="weui-cell__bd">
                 <p style="font-size: 15px;color: #333;">{{orderLine.productName}}</p>

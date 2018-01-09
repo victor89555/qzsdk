@@ -8,15 +8,13 @@
         "productName": "新鲜韭菜",
         "unitName": "斤",
         "qty": 5,
-        "totalAmount": 6.5,
-        "imgUrl": "./assets/img/jiucai.png"
+        "totalAmount": 6.5
       },
       {
         "productName": "荷兰土豆",
         "unitName": "颗",
         "qty": 6,
-        "totalAmount": 3.5,
-        "imgUrl": "./assets/img/tudou.png"
+        "totalAmount": 3.5
       }
     ]
   },
@@ -29,15 +27,13 @@
         "productName": "新鲜韭菜",
         "unitName": "斤",
         "qty": 5,
-        "totalAmount": 6.5,
-        "imgUrl": "./assets/img/jiucai.png"
+        "totalAmount": 6.5
       },
       {
         "productName": "荷兰土豆",
         "unitName": "颗",
         "qty": 6,
-        "totalAmount": 3.5,
-        "imgUrl": "./assets/img/tudou.png"
+        "totalAmount": 3.5
       }
     ]
   }

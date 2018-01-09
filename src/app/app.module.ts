@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {UsersModule} from './users/users.module';
@@ -19,6 +19,7 @@ import {WechatService} from "./shared/wechat.service"
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     CoreModule,
     UsersModule,
     ShopModule,

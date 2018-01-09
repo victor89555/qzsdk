@@ -15,6 +15,7 @@ export class OrderListComponent implements OnInit {
   orders: Order[] = []
   beginTime: string = ''
   endTime: string = ''
+  defaultImg = "./assets/img/jiucai.png"
 
   constructor(private orderListService: OrderListService,
               private router: Router) {}

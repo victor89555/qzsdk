@@ -1,3 +1,55 @@
-<p>
-  register works!
-</p>
+<div class="weui-tab">
+  <form class="weui-tab__panel" [formGroup]="registerForm">
+    
+    <div class="tips">
+      <p>（微信用户名称）</p>
+      <p>欢迎您注册为新会员，注册成功立即奖励500积分！</p>
+    </div>
+  
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">姓名：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <p>{{user?.userName || '微信用户名称'}}</p>
+        </div>
+      </div>
+      <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+          <label class="weui-label">手机号：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="请输入手机号" formControlName="mobile">
+        </div>
+        <div class="weui-cell__ft">
+          <button class="weui-vcode-btn" (click)="getVCode()">获取验证码</button>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">验证码：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="请输入验证码" formControlName="vcode">
+        </div>
+      </div>
+    </div>
+  
+    <label for="agree" class="weui-agree">
+      <input id="agree" type="checkbox" class="weui-agree__checkbox" formControlName="agree">
+      <span class="weui-agree__text">
+                阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+            </span>
+    </label>
+  
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips" (click)="doRegister()">注册</a>
+    </div>
+    
+  </form>
+  
+  
+  <!--<app-tab-list></app-tab-list>-->
+
+</div>

@@ -1,38 +1,41 @@
-<div *ngIf="path == 'personal'" class="weui-tabbar">
-  <a routerLink="/users/order" class="weui-tabbar__item">
+<div [ngSwitch]="path">
+  <div *ngSwitchCase="'personal'" class="weui-tabbar">
+    <a routerLink="/users/orders" class="weui-tabbar__item">
       <span style="display: inline-block;position: relative;">
         <img src="assets/img/icon2/compare-h.png" alt="" class="weui-tabbar__icon">
         <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
       </span>
-    <p class="weui-tabbar__label">我的订单</p>
-  </a>
-  <a routerLink="/users/personal" class="weui-tabbar__item weui-bar__item_on">
-    <img src="assets/img/icon2/person-g.png" alt="" class="weui-tabbar__icon">
-    <p class="weui-tabbar__label">个人中心</p>
-  </a>
-</div>
-<div *ngIf="path == 'order'" class="weui-tabbar">
-  <a routerLink="/users/order" class="weui-tabbar__item weui-bar__item_on">
+      <p class="weui-tabbar__label">我的订单</p>
+    </a>
+    <a routerLink="/users/personal" class="weui-tabbar__item weui-bar__item_on">
+      <img src="assets/img/icon2/person-g.png" alt="" class="weui-tabbar__icon">
+      <p class="weui-tabbar__label">个人中心</p>
+    </a>
+  </div>
+  
+  <div *ngSwitchCase="'orders'" class="weui-tabbar">
+    <a routerLink="/users/orders" class="weui-tabbar__item weui-bar__item_on">
       <span style="display: inline-block;position: relative;">
         <img src="assets/img/icon2/compare-g.png" alt="" class="weui-tabbar__icon">
       </span>
-    <p class="weui-tabbar__label">我的订单</p>
-  </a>
-  <a routerLink="/users/personal" class="weui-tabbar__item">
-    <img src="assets/img/icon2/person-h.png" alt="" class="weui-tabbar__icon">
-    <p class="weui-tabbar__label">个人中心</p>
-  </a>
-</div>
-<div *ngIf="path == 'integral'" class="weui-tabbar">
-  <a routerLink="/users/order" class="weui-tabbar__item">
+      <p class="weui-tabbar__label">我的订单</p>
+    </a>
+    <a routerLink="/users/personal" class="weui-tabbar__item">
+      <img src="assets/img/icon2/person-h.png" alt="" class="weui-tabbar__icon">
+      <p class="weui-tabbar__label">个人中心</p>
+    </a>
+  </div>
+  
+  <div *ngSwitchDefault class="weui-tabbar">
+    <a routerLink="/users/orders" class="weui-tabbar__item">
       <span style="display: inline-block;position: relative;">
         <img src="assets/img/icon2/compare-h.png" alt="" class="weui-tabbar__icon">
-        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
       </span>
-    <p class="weui-tabbar__label">我的订单</p>
-  </a>
-  <a routerLink="/users/personal" class="weui-tabbar__item">
-    <img src="assets/img/icon2/person-h.png" alt="" class="weui-tabbar__icon">
-    <p class="weui-tabbar__label">个人中心</p>
-  </a>
+      <p class="weui-tabbar__label">我的订单</p>
+    </a>
+    <a routerLink="/users/personal" class="weui-tabbar__item">
+      <img src="assets/img/icon2/person-h.png" alt="" class="weui-tabbar__icon">
+      <p class="weui-tabbar__label">个人中心</p>
+    </a>
+  </div>
 </div>

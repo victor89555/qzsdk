@@ -12,6 +12,7 @@ import { OrderListService } from "./order-list.service";
 export class OrderListComponent implements OnInit {
 
   orders: Order[] = []
+  defaultImg = "./assets/img/jiucai.png"
 
   constructor(private orderListService: OrderListService) {}
 

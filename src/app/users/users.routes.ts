@@ -5,6 +5,8 @@ import {OrderListComponent} from './order-list/order-list.component';
 import {IntegralListComponent} from './integral-list/integral-list.component';
 import {OrderDetailComponent} from "./order-detail/order-detail.component";
 import {LoginComponent} from "./login/login.component"
+import {RegisterComponent} from "./register/register.component";
+import {InformationComponent} from "./information/information.component";
 
 export const routes: Routes = [
   {
@@ -14,18 +16,26 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'personal'
+        redirectTo: 'register'
       },
       {
         path: 'login',
         component: LoginComponent
       },
       {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
         path: 'personal',
         component: PersonalCenterComponent
       },
       {
-        path: 'order',
+        path: 'information',
+        component: InformationComponent
+      },
+      {
+        path: 'orders',
         component: OrderListComponent
       },
       {

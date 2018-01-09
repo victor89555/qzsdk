@@ -11,6 +11,7 @@ import { WaterListComponent } from './water-list/water-list.component';
 import { TabListComponent } from './tab-list/tab-list.component';
 import { NgxEchartsModule } from "ngx-echarts";
 import { ShopListComponent } from './shop-list/shop-list.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule ({
   imports: [
@@ -26,6 +27,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
     WaterListComponent,
     TabListComponent,
     ShopListComponent,
+    RegisterComponent,
   ]
 })
 
