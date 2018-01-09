@@ -1,9 +1,10 @@
-import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './users.component';
-import { PersonalCenterComponent } from './personal-center/personal-center.component';
-import { OrderListComponent } from './order-list/order-list.component';
-import { IntegralListComponent } from './integral-list/integral-list.component';
+import {Routes} from '@angular/router';
+import {UsersComponent} from './users.component';
+import {PersonalCenterComponent} from './personal-center/personal-center.component';
+import {OrderListComponent} from './order-list/order-list.component';
+import {IntegralListComponent} from './integral-list/integral-list.component';
 import {OrderDetailComponent} from "./order-detail/order-detail.component";
+import {LoginComponent} from "./login/login.component"
 
 export const routes: Routes = [
   {
@@ -14,6 +15,10 @@ export const routes: Routes = [
         path: '',
         pathMatch: 'full',
         redirectTo: 'personal'
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {
         path: 'personal',

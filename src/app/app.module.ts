@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { UsersModule } from './users/users.module';
-import { routes } from "./app.routes";
-import { RouterModule } from '@angular/router';
-import { ShopModule } from "./shop/shop.module";
-import { CoreModule } from "./core/core.module";
-import { ThurderNGModule } from "./thurder-ng/thurder-ng.module";
-import { NgxEchartsModule } from "ngx-echarts";
+import {AppComponent} from './app.component';
+import {UsersModule} from './users/users.module';
+import {routes} from "./app.routes";
+import {RouterModule} from '@angular/router';
+import {ShopModule} from "./shop/shop.module";
+import {CoreModule} from "./core/core.module";
+import {ThurderNGModule} from "./thurder-ng/thurder-ng.module";
+import {NgxEchartsModule} from "ngx-echarts";
+import {WechatService} from "./shared/wechat.service"
 
 @NgModule({
   declarations: [
@@ -25,6 +26,10 @@ import { NgxEchartsModule } from "ngx-echarts";
     NgxEchartsModule,
     RouterModule.forRoot(routes)
   ],
+  providers: [
+    WechatService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
