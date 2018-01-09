@@ -13,7 +13,7 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'analysis'
+        redirectTo: 'list'
       },
       {
         path: 'analysis',
