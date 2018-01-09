@@ -1,0 +1,44 @@
+.market-list {
+  padding: 15px;
+  font-size: 16px;
+}
+
+.market {
+  border: 1px solid #dddddd;
+  background: #FFFFFF;
+}
+
+.market + .market {
+  margin-top: 15px;
+}
+
+.market .market_hd {
+  height: 32px;
+  line-height: 32px;
+  border-bottom: 1px solid #dddddd;
+  padding: 0 15px;
+}
+
+.market .market_bd {
+
+}
+
+.shop {
+  padding: 10px 15px;
+}
+
+.shop + .shop {
+  border-top: 1px solid #dddddd;
+}
+
+.shop .shop_row {
+  display: flex;
+}
+
+.shop .shop_row .shop_hd {
+
+}
+.shop .shop_row .shop_bd {
+  flex: 1;
+  text-align: right;
+}

@@ -1,0 +1,26 @@
+<div class="weui-tab">
+  <div class="weui-tab__panel">
+  
+    <div class="market-list">
+      <div class="market" *ngFor="let market of markets">
+        <div class="market_hd">{{market.name}}</div>
+        <div class="market_bd">
+          <div class="shop" *ngFor="let shop of market.shops">
+            <div class="shop_row">
+              <div class="shop_hd">{{shop.name}}</div>
+              <div class="shop_bd">
+                <a href="javascript:;" class="" (click)="enter(shop.id)">进入</a>
+              </div>
+            </div>
+            <div class="shop_row">
+              <div class="shop_hd"><span class="shop-status">{{shop.status}}</span></div>
+              <div class="shop_bd">{{shop.beginTime}} 至 {{shop.endTime}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+</div>

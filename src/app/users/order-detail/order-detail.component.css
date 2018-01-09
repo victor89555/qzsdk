@@ -1,0 +1,37 @@
+.order-info {
+  padding: 15px 10px;
+  font-size: 14px;
+}
+
+.order-info .info-header,
+.order-info .info-row {
+  height: 32px;
+  line-height: 32px;
+  display: flex;
+  padding: 0 15px;
+}
+
+.order-info .info_title {
+
+}
+.order-info .info_bd {
+  flex: 1;
+  text-align: right;
+}
+
+.order-detail {
+  border: 1px solid #dddddd;
+  background: #FFFFFF;
+  margin-top: 10px;
+}
+
+.order-detail .detail_hd {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 15px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.order-detail .detail_bd {
+
+}
