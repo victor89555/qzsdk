@@ -1,11 +1,11 @@
 <div class="weui-tab">
-  <form class="weui-tab__panel" [formGroup]="registerForm">
-    
+  <form class="weui-tab__panel" >
+
     <div class="tips">
       <p>（微信用户名称）</p>
       <p>欢迎您注册为新会员，注册成功立即奖励500积分！</p>
     </div>
-  
+
     <div class="weui-cells weui-cells_form">
       <div class="weui-cell">
         <div class="weui-cell__hd">
@@ -35,21 +35,21 @@
         </div>
       </div>
     </div>
-  
+
     <label for="agree" class="weui-agree">
       <input id="agree" type="checkbox" class="weui-agree__checkbox" formControlName="agree">
       <span class="weui-agree__text">
                 阅读并同意<a href="javascript:void(0);">《相关条款》</a>
             </span>
     </label>
-  
+
     <div class="weui-btn-area">
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips" (click)="doRegister()">注册</a>
     </div>
-    
+
   </form>
-  
-  
+
+
   <!--<app-tab-list></app-tab-list>-->
 
 </div>

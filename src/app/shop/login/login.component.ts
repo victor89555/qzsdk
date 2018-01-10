@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
         if (params["code"]) {
           const authCode = params["code"]
           // 通过授权码调用微信登录认证
-          this.wechatService.memberLogin(authCode).subscribe(
-            (user) => this.router.navigateByUrl('/users/orders'),
+          this.wechatService.operatorLogin(authCode).subscribe(
+            (user) => this.router.navigateByUrl('/shop/list'),
             () => {
             })
         }
