@@ -4,6 +4,7 @@ import {AnalysisComponent} from "./analysis/analysis.component";
 import {OrderListComponent} from "./order-list/order-list.component";
 import {WaterListComponent} from "./water-list/water-list.component";
 import {ShopListComponent} from "./shop-list/shop-list.component";
+import {BindComponent} from "./bind/bind.component";
 
 export const routes: Routes = [
   {
@@ -13,7 +14,7 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'list'
+        redirectTo: 'bind'
       },
       {
         path: 'analysis',
@@ -30,6 +31,10 @@ export const routes: Routes = [
       {
         path: 'list',
         component: ShopListComponent
+      },
+      {
+        path: 'bind',
+        component: BindComponent
       }
     ]
   }

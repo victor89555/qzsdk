@@ -14,6 +14,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import {InformationComponent} from "./information/information.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import { FollowWechatComponent } from './follow-wechat/follow-wechat.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {RegisterComponent} from "./register/register.component";
     OrderDetailComponent,
     InformationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FollowWechatComponent
   ]
 })
 export class UsersModule {}

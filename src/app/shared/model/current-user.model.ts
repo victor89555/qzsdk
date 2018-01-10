@@ -3,4 +3,5 @@ export class CurrentUser {
   name: string;
   token: string;
   roles: string[];
+  headImgUrl: string;
 }

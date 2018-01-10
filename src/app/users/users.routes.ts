@@ -7,6 +7,7 @@ import {OrderDetailComponent} from "./order-detail/order-detail.component";
 import {LoginComponent} from "./login/login.component"
 import {RegisterComponent} from "./register/register.component";
 import {InformationComponent} from "./information/information.component";
+import {FollowWechatComponent} from "./follow-wechat/follow-wechat.component";
 
 export const routes: Routes = [
   {
@@ -45,6 +46,10 @@ export const routes: Routes = [
       {
         path: 'integral',
         component: IntegralListComponent
+      },
+      {
+        path: 'follow',
+        component: FollowWechatComponent
       }
     ]
   }

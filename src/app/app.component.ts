@@ -82,16 +82,19 @@ export class AppComponent {
           const errCode = res.error.errCode
           if (errCode == "NO_FOLLOW_MP") {
             //todo 转到公众号关注页面
+            this.router.navigateByUrl("/user/follow")
           } else if (errCode == "NOT_MEMBER") {
             //todo 转到会员注册页面
+            this.router.navigateByUrl("/user/register")
           } else if (errCode == "NOT_OPERATOR") {
             //todo 转到商户绑定页面
+            this.router.navigateByUrl("/shop/bind")
           }
-          this.alertBoxService.placement("top")
-          this.alertBoxService.open({
-            type: 'danger',
-            html: res.error.msg || "Error！"
-          }, 5000);
+          // this.alertBoxService.placement("top")
+          // this.alertBoxService.open({
+          //   type: 'danger',
+          //   html: res.error.msg || "Error！"
+          // }, 5000);
         }
       });
   }
