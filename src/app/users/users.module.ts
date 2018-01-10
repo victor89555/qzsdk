@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -18,6 +19,8 @@ import {RegisterComponent} from "./register/register.component";
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
