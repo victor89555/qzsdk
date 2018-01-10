@@ -1,0 +1,30 @@
+- request:
+    url: /api/sms/verifyCode$
+    method: GET
+  response:
+    status: 200
+    latency: 500
+    headers:
+      Content-Type: application/json
+      Access-Control-Allow-Origin: '*'
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+      api-version: "1.0"
+    file: vcode.json
+
+- request:
+    url: /api/sms/verifyCode$
+    method: POST
+    headers:
+      content-type: application/json
+    json: '{"mobile":"15159283527","verifyCode":"123456"}'
+  response:
+    status: 200
+    latency: 500
+    headers:
+      Content-Type: application/json
+      Access-Control-Allow-Origin: '*'
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+      api-version: "1.0"
+    file: check-vcode.json
