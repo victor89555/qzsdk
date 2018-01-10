@@ -33,7 +33,7 @@ export class WechatService extends RebirthHttp {
   }
 
   private innerLogin(loginPath, authCode): Observable<CurrentUser> {
-    return this.http.post<CurrentUser>(`${environment.api.host}/${loginPath}?code=${authCode}`, {}).map((data: any) => {
+    return this.http.post<CurrentUser>(`${environment.api.host}/${loginPath}?code=${authCode}`, {}, {headers: {"X-Requested-With": "XMLHttpRequest"}}).map((data: any) => {
       let currentUser = new CurrentUser()
       currentUser.id = data.userId
       currentUser.name = data.userName
