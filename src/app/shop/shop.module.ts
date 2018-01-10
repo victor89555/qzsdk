@@ -12,6 +12,7 @@ import { TabListComponent } from './tab-list/tab-list.component';
 import { NgxEchartsModule } from "ngx-echarts";
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule ({
   imports: [
@@ -28,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
     TabListComponent,
     ShopListComponent,
     RegisterComponent,
+    LoginComponent,
   ]
 })
 

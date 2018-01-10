@@ -1,9 +1,12 @@
 {
-  "env": "prod",
+  "env": "dev",
   "api": {
     "host": "http://localhost:8000/api"
   },
-  "auth": {
-    "host": "http://vito-uic.djws.com.cn"
+  "wechat": {
+    "appId": "wx66f34ffcf8f805bf"
+  },
+  "web": {
+    "host": "http://market-cusfe.djws.com.cn"
   }
 }

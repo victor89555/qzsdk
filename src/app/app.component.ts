@@ -71,15 +71,22 @@ export class AppComponent {
         if ([401, 0].includes(res.status)) {
           const errCode = res.error.errCode
           if (errCode == "INVALID_MEMBER_TOKEN") {
-            this.winRef.document.location.href = this.wechatService.getMemberAuthUrl()
+            window.location.href = this.wechatService.getMemberAuthUrl()
           } else if (errCode == "INVALID_OPERATOR_TOKEN") {
-            this.winRef.document.location.href = this.wechatService.getOperatorAuthUrl()
+            window.location.href = this.wechatService.getOperatorAuthUrl()
           }
           // this.router.navigateByUrl('/login');
         }
         if ([400].indexOf(res.status) !== -1) {
           console.log(res.error.msg)
-
+          const errCode = res.error.errCode
+          if (errCode == "NO_FOLLOW_MP") {
+            //todo 转到公众号关注页面
+          } else if (errCode == "NOT_MEMBER") {
+            //todo 转到会员注册页面
+          } else if (errCode == "NOT_OPERATOR") {
+            //todo 转到商户绑定页面
+          }
           this.alertBoxService.placement("top")
           this.alertBoxService.open({
             type: 'danger',
