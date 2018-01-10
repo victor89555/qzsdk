@@ -1,0 +1,17 @@
+.tips {
+  background: #00e679;
+  padding: 10px;
+}
+.tips>p {
+  line-height: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.erweima {
+  position: relative;
+  padding: 40px;
+}
+.erweima>img {
+  width: 100%;
+}
