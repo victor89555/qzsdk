@@ -42,10 +42,10 @@
 
 - request:
     url: /api/members/register$
-    method: GET
+    method: POST
     headers:
       content-type: application/json
-    json: '{"mobile":"15159283527","verifyCode":"123456"}'
+    json: '{"wechatOpenId":"1","mobile":"15159283527"}'
   response:
     status: 200
     latency: 500
