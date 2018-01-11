@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../users.model";
 import {VcodeService} from "../share/service/vcode.service";
 import {
   FormGroup,
@@ -8,30 +7,40 @@ import {
   FormBuilder
 } from '@angular/forms';
 import {RegisterService} from "./register.service";
-import {RegExp as Reg} from "../../shared/reg.model";
+import {RegExpDict} from "../../shared/reg.model";
+import {PersonalCenterService} from "../personal-center/personal-center.service";
+import {UserInfo} from "../personal-center/personal-center.model";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [VcodeService, RegisterService]
+  providers: [VcodeService, RegisterService,PersonalCenterService]
 })
 export class RegisterComponent implements OnInit {
 
   constructor(private vcodeService: VcodeService,
-              private registerService: RegisterService) { }
+              private registerService: RegisterService,
+              private personalCenterService: PersonalCenterService) { }
 
-  user: User
+  user: UserInfo
   verifyCode: string
   registerForm: FormGroup
   btnName: any = '获取验证码'
   isDisabled: boolean = false
-  mobileControl = new FormControl('', [Validators.required, Validators.pattern(new RegExp(Reg["MOBILE"]))])
+  // nameControl = new FormControl('', [Validators.required])
+  mobileControl = new FormControl('', [Validators.required, Validators.pattern(new RegExp(RegExpDict["MOBILE"]))])
   vcodeControl = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
   agreeControl = new FormControl(false, [Validators.required])
 
 
   ngOnInit() {
+    this.personalCenterService.getAll(55).subscribe(
+      (user)=>{
+        console.log(user)
+        this.user = user
+      }
+    )
     this.registerForm = new FormGroup({
       mobile: this.mobileControl,
       vcode: this.vcodeControl,

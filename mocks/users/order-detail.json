@@ -1,0 +1,26 @@
+{
+  "id":16,
+  "orderLines":[
+    {
+      "discount":0,
+      "origAmount":36,
+      "price":0,
+      "productName":"芥兰",
+      "qty":6,
+      "totalAmount":36,
+      "unitName":"斤"
+    },
+    {
+      "discount":0,
+      "origAmount":36,
+      "price":0,
+      "productName":"芥兰",
+      "qty":6,
+      "totalAmount":36,
+      "unitName":"斤"
+    }
+  ],
+  "shopName":"松柏银翔牛肉店",
+  "status":0,
+  "tradingTime":"2017-12-12 17:30:17"
+}

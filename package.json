@@ -38,6 +38,7 @@
     "core-js": "^2.4.1",
     "echarts": "^3.8.5",
     "ngx-echarts": "^2.0.1",
+    "ngx-weui": "^1.2.2",
     "rebirth-event-source": "^0.0.1",
     "rebirth-http": "^0.1.5",
     "rebirth-permission": "^0.0.8",

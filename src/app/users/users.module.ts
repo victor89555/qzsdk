@@ -15,6 +15,7 @@ import {InformationComponent} from "./information/information.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { FollowWechatComponent } from './follow-wechat/follow-wechat.component';
+import {WeUiModule} from "ngx-weui";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { FollowWechatComponent } from './follow-wechat/follow-wechat.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    WeUiModule.forRoot(),
     RouterModule.forChild(routes)
   ],
   declarations: [

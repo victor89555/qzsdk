@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { routes } from "./shop.routes"
 import { ShopComponent} from "./shop.component";
@@ -19,6 +20,8 @@ import { BindComponent } from './bind/bind.component';
     CommonModule,
     HttpClientModule,
     NgxEchartsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

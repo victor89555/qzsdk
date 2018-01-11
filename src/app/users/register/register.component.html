@@ -1,18 +1,18 @@
 <div class="weui-tab">
-  <form class="weui-tab__panel" >
+  <form class="weui-tab__panel weui-cells_form" [formGroup]="registerForm">
 
     <div class="tips">
-      <p>（微信用户名称）</p>
+      <p>{{user?.nickName}}</p>
       <p>欢迎您注册为新会员，注册成功立即奖励500积分！</p>
     </div>
 
-    <div class="weui-cells weui-cells_form">
+    <div class="weui-cells">
       <div class="weui-cell">
         <div class="weui-cell__hd">
           <label class="weui-label">姓名：</label>
         </div>
         <div class="weui-cell__bd">
-          <p>{{user?.userName || '微信用户名称'}}</p>
+          <p>{{user?.nickName}}</p>
         </div>
       </div>
       <div class="weui-cell">
@@ -46,7 +46,6 @@
     </div>
 
   </form>
-
 
   <!--<app-tab-list></app-tab-list>-->
 

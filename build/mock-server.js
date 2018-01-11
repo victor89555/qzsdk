@@ -5,7 +5,7 @@ const options = {
   callback: function (server, options) {
     // console.log(server.endpoints.db);
   },
-  stubs: 8000,
+  stubs: 9080,
   tls: 8443,
   admin: 8010,
   quiet: false,

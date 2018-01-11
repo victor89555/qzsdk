@@ -10,7 +10,7 @@ import {ShopModule} from "./shop/shop.module";
 import {CoreModule} from "./core/core.module";
 import {ThurderNGModule} from "./thurder-ng/thurder-ng.module";
 import {NgxEchartsModule} from "ngx-echarts";
-import {WechatService} from "./shared/wechat.service"
+import {WechatService} from "./shared/wechat.service";
 
 @NgModule({
   declarations: [

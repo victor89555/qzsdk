@@ -32,5 +32,9 @@ export const dicts = {
   "INTEGRALS_SUBJECT": {
     11: "购物返积分",
     21: "优惠券兑换"
+  },
+
+  "ORDER_STATUS": {
+    0: "已付款"
   }
 }
