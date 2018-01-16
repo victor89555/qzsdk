@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Body, POST, RebirthHttp} from "rebirth-http";
+import {Body, GET, POST, RebirthHttp} from "rebirth-http";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 
@@ -12,6 +12,11 @@ export class RegisterService extends RebirthHttp{
 
   @POST("members/register")
   doRegister(@Body json:any): Observable<any> {
+    return null
+  }
+
+  @GET("members/register")
+  getInfo(): Observable<any> {
     return null
   }
 

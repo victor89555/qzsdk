@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {VcodeService} from "../share/service/vcode.service";
+import {VcodeService} from "../../shared/vcode.service";
 import {
   FormGroup,
   FormControl,
@@ -8,40 +8,40 @@ import {
 } from '@angular/forms';
 import {RegisterService} from "./register.service";
 import {RegExpDict} from "../../shared/reg.model";
-import {PersonalCenterService} from "../personal-center/personal-center.service";
 import {UserInfo} from "../personal-center/personal-center.model";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [VcodeService, RegisterService,PersonalCenterService]
+  providers: [VcodeService, RegisterService]
 })
 export class RegisterComponent implements OnInit {
 
   constructor(private vcodeService: VcodeService,
-              private registerService: RegisterService,
-              private personalCenterService: PersonalCenterService) { }
+              private registerService: RegisterService) { }
 
   user: UserInfo
   verifyCode: string
   registerForm: FormGroup
   btnName: any = '获取验证码'
   isDisabled: boolean = false
-  // nameControl = new FormControl('', [Validators.required])
+  nameControl = new FormControl('', [Validators.required])
   mobileControl = new FormControl('', [Validators.required, Validators.pattern(new RegExp(RegExpDict["MOBILE"]))])
   vcodeControl = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
   agreeControl = new FormControl(false, [Validators.required])
 
 
   ngOnInit() {
-    this.personalCenterService.getAll(55).subscribe(
+    this.registerService.getInfo().subscribe(
       (user)=>{
         console.log(user)
         this.user = user
+        this.nameControl.setValue(user.nickName)
       }
     )
     this.registerForm = new FormGroup({
+      username: this.nameControl,
       mobile: this.mobileControl,
       vcode: this.vcodeControl,
       agree: this.agreeControl
@@ -62,15 +62,18 @@ export class RegisterComponent implements OnInit {
   }
 
   doRegister() {
-    if(this.mobileControl.valid && this.vcodeControl.valid && this.agreeControl.value){
+    if(this.nameControl.valid && this.mobileControl.valid &&
+      this.vcodeControl.valid && this.agreeControl.value){
       this.checkVcode(()=>{
         let json = {
-          wechatOpenId: "1",
+          name: this.nameControl.value,
           mobile: this.mobileControl.value
         }
         this.registerService.doRegister(json).subscribe(
           (user) => {
             console.log(user);
+            //TODO 会员注册成功后，保存返回的token并路由到订单列表页
+            //TODO 提示注册成功
           }
         )
       })
@@ -82,7 +85,7 @@ export class RegisterComponent implements OnInit {
       mobile: this.mobileControl.value,
       verifyCode: this.vcodeControl.value
     }
-    console.log(json);
+    console.log(json)
     this.vcodeService.checkVerifyCode(json).subscribe(
       (res) => {
         if(res){
