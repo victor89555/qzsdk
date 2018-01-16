@@ -10,21 +10,18 @@ import { PersonalCenterService } from "./personal-center.service";
 })
 export class PersonalCenterComponent implements OnInit {
 
-  userId: number = 55
   user: UserInfo
-  defaultImgUrl: string = "http://wx.qlogo.cn/mmopen/xbIQx1GRqdvyqkMMhEaGOX802l1CyqMJNgUzKP8MeAeHFicRDSnZH7FY4XB7p8XHXIf6uJA2SCunTPicGKezDC4saKISzRj3nz/0"
+  defaultImgUrl: string = "../assets/img/默认头像.png"
 
-  constructor(
-    private personalCenterService : PersonalCenterService
-  ) { }
+  constructor(private personalCenterService : PersonalCenterService) { }
 
   ngOnInit() {
-    this.getUserInfo(this.userId)
+    this.getUserInfo()
   }
 
-  getUserInfo(id) {
+  getUserInfo() {
     // console.log(id)
-    this.personalCenterService.getAll(id).subscribe(
+    this.personalCenterService.getPersonalInfo().subscribe(
       (user) => {
         // console.log(user)
         this.user = user
