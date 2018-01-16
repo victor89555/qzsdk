@@ -3,3 +3,8 @@
 
 /* WeUI Exmple style sheet */
 @import '../node_modules/weui/dist/example/example.css';
+
+.text-gray {
+  color: #888888;
+}
+
