@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {VcodeService} from "../share/service/vcode.service";
+import {VcodeService} from "../../shared/vcode.service";
 import {RegExpDict} from "../../shared/reg.model";
 import {InfomationService} from "./infomation.service";
 import {PersonalCenterService} from "../personal-center/personal-center.service";
@@ -24,18 +24,17 @@ export class InformationComponent implements OnInit {
   userNameControl = new FormControl('', [Validators.required])
   mobileControl = new FormControl('', [Validators.required, Validators.pattern(new RegExp(RegExpDict["MOBILE"]))])
   vcodeControl = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
-  sexControl = new FormControl('male', [Validators.required])
+  sexControl = new FormControl(0, [Validators.required])
   addrControl = new FormControl('', [])
 
   //是否修改手机状态
   userInfo: UserInfo
   isChanging: boolean = false
+  isCounting: boolean = false
   btnName: any = '获取验证码'
-  isDisabled: boolean = false
-  verifyCode: string = ''
 
   ngOnInit() {
-    this.personalCenterService.getAll(55).subscribe(
+    this.personalCenterService.getPersonalInfo().subscribe(
       (user) => {
         this.userInfo = user
         this.userNameControl.setValue(user.name)
@@ -51,13 +50,14 @@ export class InformationComponent implements OnInit {
     })
   }
 
+  //获取验证码
   getVCode() {
     console.log(this.mobileControl)
     if(this.mobileControl.valid) {
       this.doCountDown()
       this.vcodeService.getVerifyCode(this.mobileControl.value).subscribe(
         (res) => {
-          this.verifyCode = res.verifyCode
+          console.log(res)
         }
       )
     }
@@ -65,13 +65,13 @@ export class InformationComponent implements OnInit {
 
   //倒计时
   doCountDown() {
-    this.isDisabled = true
+    this.isCounting = true
     let t = 60
     this.btnName = t + 's'
     let timer = setInterval(() => {
       if(t-- <= 0){
         clearInterval(timer)
-        this.isDisabled = false
+        this.isCounting = false
         this.btnName = '获取验证码'
       }else {
         this.btnName = t + 's'
@@ -79,9 +79,9 @@ export class InformationComponent implements OnInit {
     },1000)
   }
 
-  //提交
+  // 点击修改
   doSubmit() {
-    console.log(this.infoForm)
+    // console.log(this.infoForm)
     if(this.isChanging){
       this.checkVcode(this.doUpdate.bind(this))
     }else{
@@ -89,12 +89,13 @@ export class InformationComponent implements OnInit {
     }
   }
 
+  // 验证验证码
   checkVcode(cb) {
     let json = {
       mobile: this.mobileControl.value,
       verifyCode: this.vcodeControl.value
     }
-    console.log(json);
+    console.log(json)
     this.vcodeService.checkVerifyCode(json).subscribe(
       (res) => {
         if(res){
@@ -104,10 +105,12 @@ export class InformationComponent implements OnInit {
     )
   }
 
+  // 返回上一页
   goBack() {
     window.history.back()
   }
 
+  // 更新用户信息
   doUpdate() {
     if(this.userNameControl.valid && this.mobileControl.valid && this.sexControl.valid) {
       let json = {
@@ -119,7 +122,6 @@ export class InformationComponent implements OnInit {
       console.log(json)
       this.informationService.updateInformation(json).subscribe(
         (res) => {
-          console.log(res)
           this.toastService.success("更新成功！").hide.subscribe(()=>{
             window.history.back()
           })
@@ -128,7 +130,4 @@ export class InformationComponent implements OnInit {
     }
   }
 
-  // onSendCode() {
-  //   return Observable.timer(1000).map((v, i) => true);
-  // }
 }

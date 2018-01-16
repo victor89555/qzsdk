@@ -12,7 +12,7 @@
           <label class="weui-label">姓名：</label>
         </div>
         <div class="weui-cell__bd">
-          <input formControlName="username" class="weui-input" type="text">
+          <input formControlName="username" class="weui-input" type="text" weui-required>
         </div>
       </div>
       <div class="weui-cell weui-cell_vcode">
@@ -20,11 +20,12 @@
           <label class="weui-label">手机号：</label>
         </div>
         <div class="weui-cell__bd">
-          <input formControlName="mobile" class="weui-input" weui-input="number"
+          <input formControlName="mobile" class="weui-input" weui-input="mobile"
                  [readonly]="!isChanging" type="text" placeholder="请输入手机号">
         </div>
         <div class="weui-cell__ft">
-          <button *ngIf="isChanging" [disabled]="isDisabled" class="weui-vcode-btn" (click)="getVCode()">{{btnName}}</button>
+          <button *ngIf="isChanging" [disabled]="isCounting" class="weui-vcode-btn"
+                  [ngClass]="{'text-gray': isCounting}" (click)="getVCode()">{{btnName}}</button>
           <button *ngIf="!isChanging" class="weui-vcode-btn" (click)="isChanging = true">修改手机</button>
         </div>
       </div>
@@ -33,7 +34,7 @@
           <label class="weui-label">验证码：</label>
         </div>
         <div class="weui-cell__bd">
-          <input formControlName="vcode" class="weui-input" weui-input="number" type="text" placeholder="请输入验证码">
+          <input formControlName="vcode" class="weui-input" type="text" placeholder="请输入验证码">
         </div>
       </div>
       <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -42,8 +43,8 @@
         </div>
         <div class="weui-cell__bd">
           <select formControlName="sex" class="weui-select">
-            <option value="male">男</option>
-            <option value="female">女</option>
+            <option value =0>男</option>
+            <option value=1>女</option>
           </select>
         </div>
       </div>
