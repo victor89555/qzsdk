@@ -9,6 +9,9 @@ import {
 import {RegisterService} from "./register.service";
 import {RegExpDict} from "../../shared/reg.model";
 import {UserInfo} from "../personal-center/personal-center.model";
+import {AuthorizationService} from "rebirth-permission";
+import {ToastService} from "ngx-weui";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -19,7 +22,10 @@ import {UserInfo} from "../personal-center/personal-center.model";
 export class RegisterComponent implements OnInit {
 
   constructor(private vcodeService: VcodeService,
-              private registerService: RegisterService) { }
+              private registerService: RegisterService,
+              private authorizationService:AuthorizationService,
+              private toastService: ToastService,
+              private router: Router) { }
 
   user: UserInfo
   verifyCode: string
@@ -72,8 +78,11 @@ export class RegisterComponent implements OnInit {
         this.registerService.doRegister(json).subscribe(
           (user) => {
             console.log(user);
-            //TODO 会员注册成功后，保存返回的token并路由到订单列表页
-            //TODO 提示注册成功
+            this.authorizationService.setCurrentUser(user);
+            this.toastService.success("注册成功！").hide.subscribe(()=>{
+              this.router.navigate(['users/orders'],{skipLocationChange: true})
+            })
+
           }
         )
       })
