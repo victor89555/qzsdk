@@ -1,17 +1,24 @@
 export class OrderDetail {
   id: number
-  orderLines: OrderLine[]
   shopName: string
-  status: number
   tradingTime: string
+  status: number
+  origAmount: number
+  totalAmount: number
+  orderLines: OrderLine[]
 }
 
 export class OrderLine {
+  price: number
   discount: number
   origAmount: number
-  price: number
   productName: string
   qty: number
   unitName: string
   totalAmount: number
+}
+
+export class Integral {
+  subject: number
+  amount: number
 }

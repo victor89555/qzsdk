@@ -32,9 +32,10 @@ export class OrderDetailComponent implements OnInit {
 
   //获取订单详情
   getOrderDetail() {
-    this.orderDetailService.getOrderDetail(10).subscribe(
+    this.orderDetailService.getOrderDetail(this.orderDetailId).subscribe(
       (detail) => {
-        this.orderDetail = detail
+        console.log(detail)
+        this.orderDetail = detail.order
       }
     )
   }

@@ -12,7 +12,7 @@ export class OrderDetailService extends RebirthHttp{
   }
 
   @GET("members/orders/:id")
-  getOrderDetail(@Path("id") id:number = 10): Observable<OrderDetail> {
+  getOrderDetail(@Path("id") id:number = 10): Observable<any> {
     return null
   }
 
