@@ -6,7 +6,7 @@
       <div *ngFor="let integral of integralList" class="weui-cell">
         <div class="weui-cell__hd"></div>
         <div class="weui-cell__bd">
-          <p>{{integralsDict[integral.subject]}}</p>
+          <p>{{integralsDict[integral.subject] || "其他积分"}}</p>
         </div>
         <div class="weui-cell__ft integral-in">
           <span style="color: #ff0000;">
