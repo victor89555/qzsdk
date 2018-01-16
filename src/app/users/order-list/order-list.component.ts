@@ -13,22 +13,42 @@ import {Router} from "@angular/router";
 export class OrderListComponent implements OnInit {
 
   orders: Order[] = []
-  beginTime: string = ''
-  endTime: string = ''
+  beginTime: string = '2017-11-01'
+  endTime: string = '2017-12-31'
+  pageSize: number = 3
+  pageNumber: number = 1
+  isLastPage:boolean = false
+  idLoading:boolean = false
   defaultImg = "./assets/img/jiucai.png"
 
   constructor(private orderListService: OrderListService,
               private router: Router) {}
 
   ngOnInit() {
-    this.getOrderList(this.beginTime, this.endTime)
+    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
   }
 
-  getOrderList(st, et) {
-    this.orderListService.getAll(st, et).subscribe(
+  loadMore() {
+    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+  }
+  getOrderList(st, et, ps, pn) {
+    this.idLoading = true
+    this.orderListService.getAll(st, et, ps, pn).subscribe(
       (orders) => {
-        // console.log(orders)
-        this.orders = orders
+        console.log(orders)
+        this.idLoading = false
+        if(pn > 1){
+          this.orders.push(...orders)
+        }else{
+          this.orders = orders
+        }
+
+        if(orders.length < this.pageSize) {
+          this.isLastPage = true
+        }else {
+          this.isLastPage = false
+          this.pageNumber++
+        }
       }
     )
   }
@@ -36,17 +56,20 @@ export class OrderListComponent implements OnInit {
   getHistoryOrders() {
     console.log('获取历史订单')
     this.orders = []
-    this.getOrderList(this.beginTime, this.endTime)
+    this.pageNumber = 1
+    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
   }
   getThreeMonthOrders() {
     console.log('获取最近三个月订单')
     this.orders = []
-    this.getOrderList(this.beginTime, this.endTime)
+    this.pageNumber = 1
+    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
   }
   getHalfYearOrders() {
     console.log('获取最近半年订单')
     this.orders = []
-    this.getOrderList(this.beginTime, this.endTime)
+    this.pageNumber = 1
+    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
   }
 
   orderDetail(id) {

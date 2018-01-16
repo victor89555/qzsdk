@@ -19,7 +19,7 @@
     </div>
     
     <div *ngFor="let order of orders" class="weui-panel weui-panel_access">
-      <div class="weui-panel__bd" (click)="orderDetail(order.id)" >
+      <div class="weui-panel__bd" (click)="orderDetail(order.id)">
         <div class="weui-panel weui-panel_access">
           <div class="weui-panel__hd">
             <p style="font-size: 15px;color: #333;">{{order.shopName}}</p>
@@ -35,7 +35,7 @@
               </div>
               <div class="weui-cell__ft">
                 <p style="font-size: 13px;color: #888888;">{{orderLine.qty}} {{orderLine.unitName}}</p>
-                <p style="font-size: 15px;color: #888888;"><span>{{orderLine.totalAmount}}</span>元</p>
+                <p style="font-size: 15px;color: #888888;"><span>{{orderLine.totalAmount}}</span> 元</p>
               </div>
             </div>
             
@@ -56,9 +56,13 @@
       </div>
     </div>
   
-    <div class="weui-loadmore">
+    <div *ngIf="idLoading" class="weui-loadmore">
       <i class="weui-loading"></i>
       <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <div *ngIf="!idLoading" class="weui-loadmore weui-loadmore_line">
+      <span *ngIf="!isLastPage" class="weui-loadmore__tips" (click)="loadMore()">加载更多</span>
+      <span *ngIf="isLastPage" class="weui-loadmore__tips">没有更多了</span>
     </div>
     
   </div>
