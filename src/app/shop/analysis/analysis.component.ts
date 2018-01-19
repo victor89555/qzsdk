@@ -23,26 +23,32 @@ export class AnalysisComponent implements OnInit {
       text: '商户交易统计产品维度'
     },
     legend: {
+      x : 'center',
+      y : 'bottom',
+      data: []
+    },
+    calculable : true,
+    series : [
+      { name:'销售数量',
+        type:'pie',
+        radius : [10, 50],
+        roseType : 'area',
+        data:[]
+      }
+    ]
+  }
+  timeOption:any = {
+    title : {
+      text: '商户交易统计时间维度',
+      left: '10px'
+    },
+    legend: {
       top:'100px',
       left:'10px',
       data: []
     },
-    toolbox: {
-      show: true,
-      top: '50px',
-      left: '10px',
-      feature: {
-        dataZoom: {
-          yAxisIndex: 'none'
-        },
-        dataView: {readOnly: false},
-        magicType: {type: ['line', 'bar']},
-        restore: {},
-        saveAsImage: {}
-      }
-    },
     grid: {
-      top:'200px',
+      top:'100px',
       left: '10px',
       right: '20px',
       bottom: '10px',
@@ -63,41 +69,6 @@ export class AnalysisComponent implements OnInit {
         name:'干货营业额',
         type:'line',
         showSymbol: false,
-        data:[]
-      }
-    ]
-  }
-  timeOption:any = {
-    title : {
-      text: '商户交易统计时间维度',
-      left: '10px'
-    },
-    legend: {
-      x : 'center',
-      y : 'bottom',
-      data: []
-    },
-    toolbox: {
-      show : true,
-      top: '50px',
-      left:'10px',
-      feature : {
-        mark : {show: true},
-        dataView : {show: true, readOnly: false},
-        magicType : {
-          show: true,
-          type: ['pie', 'funnel']
-        },
-        restore : {show: true},
-        saveAsImage : {show: true}
-      }
-    },
-    calculable : true,
-    series : [
-      { name:'销售数量',
-        type:'pie',
-        radius : [10, 50],
-        roseType : 'area',
         data:[]
       }
     ]

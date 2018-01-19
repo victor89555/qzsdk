@@ -1,24 +1,17 @@
 export class Order {
-  marketId: string;
-  marketName: string;
-  menberId: string;
-  shopId: string;
-  shopName: string;
-  tradingTime: string;
-  payWay: string;
-  origAmount: number;
-  totalAmount: number;
-  orderLines: OrderLine[] = []
+  id: string
+  orderLines: OrderLine[]
+  memberName: string
+  status: number
+  tradingTime: string
 }
 
 export class OrderLine {
-  productId: string;
-  productName: string;
-  unitName: string;
-  imgUrl: string;
-  price: number;
-  qty: number;
-  discount: string;
-  origAmount: number;
-  totalAmount: number;
+  discount: number
+  origAmount: number
+  price: number
+  productName: string
+  qty: number
+  unitName: string
+  totalAmount: number
 }

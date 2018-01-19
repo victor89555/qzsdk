@@ -12,8 +12,10 @@ export class OrderListService extends RebirthHttp {
     super(http)
   }
 
-  @GET("shop/orders")
-  getOrders(): Observable<Order[]> {
+  @GET("shops/:shopId/orders")
+  getOrders(@Path("shopId") shopId: number, @Query("beginTime") beginTime: string,
+            @Query("endTime") endTime: string, @Query("pageSize") pageSize: number,
+            @Query("pageNum") pageNum: number): Observable<Order[]> {
     return null
   }
 

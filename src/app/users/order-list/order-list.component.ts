@@ -25,19 +25,21 @@ export class OrderListComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+    this.getOrderList()
   }
 
   loadMore() {
-    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+    this.getOrderList()
   }
-  getOrderList(st, et, ps, pn) {
+
+
+  getOrderList() {
     this.idLoading = true
-    this.orderListService.getAll(st, et, ps, pn).subscribe(
+    this.orderListService.getAll(this.beginTime, this.endTime, this.pageSize, this.pageNumber).subscribe(
       (orders) => {
         console.log(orders)
         this.idLoading = false
-        if(pn > 1){
+        if(this.pageNumber > 1){
           this.orders.push(...orders)
         }else{
           this.orders = orders
@@ -57,19 +59,19 @@ export class OrderListComponent implements OnInit {
     console.log('获取历史订单')
     this.orders = []
     this.pageNumber = 1
-    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+    this.getOrderList()
   }
   getThreeMonthOrders() {
     console.log('获取最近三个月订单')
     this.orders = []
     this.pageNumber = 1
-    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+    this.getOrderList()
   }
   getHalfYearOrders() {
     console.log('获取最近半年订单')
     this.orders = []
     this.pageNumber = 1
-    this.getOrderList(this.beginTime, this.endTime, this.pageSize, this.pageNumber)
+    this.getOrderList()
   }
 
   orderDetail(id) {

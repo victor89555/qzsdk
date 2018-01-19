@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderLine } from "./order-list.model";
 import { OrderListService } from "./order-list.service";
+import {StorageService} from "rebirth-storage";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order-list',
@@ -12,18 +14,54 @@ import { OrderListService } from "./order-list.service";
 export class OrderListComponent implements OnInit {
 
   orders: Order[] = []
+  shopId: number
+  beginTime: string = "2017-12-01"
+  endTime: string = "2017-12-31"
+  pageSize: number = 3
+  pageNum: number = 1
+  isLastPage:boolean = false
+  idLoading:boolean = false
   defaultImg = "./assets/img/jiucai.png"
 
-  constructor(private orderListService: OrderListService) {}
+  constructor(private orderListService: OrderListService,
+              private storageService: StorageService,
+              private router: Router) {}
 
   ngOnInit() {
+    this.shopId = parseInt(this.storageService.sessionStorage.getItem("shopId"))
+    if(!this.shopId) {this.router.navigate(['shop/list'])}
+    else{
+      this.getOrderList()
+    }
+  }
+
+  loadMore() {
+    this.getOrderList()
+  }
+
+  reLoad() {
+    this.pageNum = 1;
     this.getOrderList()
   }
 
   getOrderList() {
-    this.orderListService.getOrders().subscribe(
+    this.idLoading = true
+    this.orderListService.getOrders(this.shopId, this.beginTime, this.endTime, this.pageSize, this.pageNum).subscribe(
       (orders) => {
-        this.orders = orders
+        console.log(orders)
+        this.idLoading = false
+        if(this.pageNum > 1){
+          this.orders.push(...orders)
+        }else{
+          this.orders = orders
+        }
+
+        if(orders.length < this.pageSize) {
+          this.isLastPage = true
+        }else {
+          this.isLastPage = false
+          this.pageNum++
+        }
       }
     )
   }
