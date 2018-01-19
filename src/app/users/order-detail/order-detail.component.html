@@ -3,9 +3,10 @@
     
     <div class="order-info">
       <div class="info-header">
-        <div class="info_title">{{orderDetail?.shopName}}</div>
+        <div class="info_title" style="font-size: 16px;font-weight: 800;">{{orderDetail?.shopName}}</div>
         <div class="info_bd">
-          <button class="weui-btn weui-btn_mini weui-btn_plain-primary" disabled>{{orderStatus[orderDetail?.status]}}</button>
+          <button class="weui-btn weui-btn_mini" disabled
+          [ngClass]="{'weui-btn_plain-primary': orderDetail?.status == 0}">{{orderStatus[orderDetail?.status]}}</button>
         </div>
       </div>
       <div class="info-row">

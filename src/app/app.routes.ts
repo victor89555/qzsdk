@@ -3,7 +3,7 @@ import {Routes} from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'users',
+    redirectTo: 'shop',
     pathMatch: 'full'
   },
   {
@@ -13,6 +13,10 @@ export const routes: Routes = [
   {
     path: 'shop',
     loadChildren: 'app/shop/shop.module#ShopModule'
+  },
+  {
+    path: 'test',
+    loadChildren: 'app/test/test.module#TestModule'
   }
 ];
 

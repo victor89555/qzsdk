@@ -9,12 +9,13 @@
             <div class="shop_row">
               <div class="shop_hd">{{shop.name}}</div>
               <div class="shop_bd">
-                <a href="javascript:;" class="" (click)="enter(shop.id)">进入</a>
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_plain-default"
+                   (click)="enter(shop.id)" *ngIf="shop.status == 0 || shop.status == 1">进入</a>
               </div>
             </div>
             <div class="shop_row">
-              <div class="shop_hd"><span class="shop-status">{{shop.status}}</span></div>
-              <div class="shop_bd">{{shop.beginTime}} 至 {{shop.endTime}}</div>
+              <div class="shop_hd"><span class="shop-status">状态：<span [ngClass]="{'text-green': shop.status == 0,'text-red': shop.status == 1, 'text-gray': shop.status == 2}">{{shopStatus[shop.status]}}</span></span></div>
+              <div class="shop_bd"><span class="shop-term">{{shop.beginTime}} 至 {{shop.endTime}}</span></div>
             </div>
           </div>
         </div>

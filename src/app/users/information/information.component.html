@@ -7,37 +7,45 @@
     </div>
   
     <div class="weui-cells weui-cells_form">
-      <div class="weui-cell">
+      <div class="weui-cell" [ngClass]="{'weui-cell_warn': userNameControl.dirty && userNameControl.invalid}">
         <div class="weui-cell__hd">
           <label class="weui-label">姓名：</label>
         </div>
         <div class="weui-cell__bd">
-          <input formControlName="username" class="weui-input" type="text" weui-required>
+          <input formControlName="username" class="weui-input" type="text">
+        </div>
+        <div class="weui-cell__ft">
+          <i class="weui-icon-warn" *ngIf="userNameControl.dirty && userNameControl.invalid"></i>
         </div>
       </div>
-      <div class="weui-cell weui-cell_vcode">
+      <div class="weui-cell weui-cell_vcode" [ngClass]="{'weui-cell_warn': mobileControl.dirty && mobileControl.invalid}">
         <div class="weui-cell__hd">
           <label class="weui-label">手机号：</label>
         </div>
         <div class="weui-cell__bd">
-          <input formControlName="mobile" class="weui-input" weui-input="mobile"
+          <input formControlName="mobile" class="weui-input"
                  [readonly]="!isChanging" type="text" placeholder="请输入手机号">
         </div>
         <div class="weui-cell__ft">
           <button *ngIf="isChanging" [disabled]="isCounting" class="weui-vcode-btn"
                   [ngClass]="{'text-gray': isCounting}" (click)="getVCode()">{{btnName}}</button>
           <button *ngIf="!isChanging" class="weui-vcode-btn" (click)="isChanging = true">修改手机</button>
+          <i class="weui-icon-warn" *ngIf="mobileControl.dirty && mobileControl.invalid"></i>
         </div>
       </div>
-      <div class="weui-cell" *ngIf="isChanging">
+      <div class="weui-cell" *ngIf="isChanging" [ngClass]="{'weui-cell_warn': vcodeControl.dirty && vcodeControl.invalid}">
         <div class="weui-cell__hd">
           <label class="weui-label">验证码：</label>
         </div>
         <div class="weui-cell__bd">
           <input formControlName="vcode" class="weui-input" type="text" placeholder="请输入验证码">
         </div>
+        <div class="weui-cell__ft">
+          <i class="weui-icon-warn" *ngIf="vcodeControl.dirty && vcodeControl.invalid"></i>
+        </div>
       </div>
-      <div class="weui-cell weui-cell_select weui-cell_select-after">
+      <div class="weui-cell weui-cell_select weui-cell_select-after"
+           [ngClass]="{'weui-cell_warn': sexControl.dirty && sexControl.invalid}">
         <div class="weui-cell__hd">
           <label class="weui-label">性别：</label>
         </div>
@@ -47,13 +55,19 @@
             <option value=1>女</option>
           </select>
         </div>
+        <div class="weui-cell__ft">
+          <i class="weui-icon-warn" *ngIf="sexControl.dirty && sexControl.invalid"></i>
+        </div>
       </div>
-      <div class="weui-cell">
+      <div class="weui-cell" [ngClass]="{'weui-cell_warn': addrControl.dirty && addrControl.invalid}">
         <div class="weui-cell__hd">
           <label class="weui-label">地址：</label>
         </div>
         <div class="weui-cell__bd">
           <input formControlName="addr" class="weui-input" type="text" placeholder="请输入详细地址">
+        </div>
+        <div class="weui-cell__ft">
+          <i class="weui-icon-warn" *ngIf="addrControl.dirty && addrControl.invalid"></i>
         </div>
       </div>
     </div>

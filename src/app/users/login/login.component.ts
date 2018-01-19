@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
           this.wechatService.memberLogin(authCode).subscribe(
             (user) => {
               //todo 应该进入用户最初访问的地址
-              this.router.navigateByUrl('/users/orders')
+              this.router.navigateByUrl('/users/perondal')
             },
             () => {
             })

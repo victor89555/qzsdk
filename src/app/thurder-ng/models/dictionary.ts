@@ -24,9 +24,9 @@ export const dicts = {
   },
 
   "SHOP_STATUS": {
-    0: "注销",
-    1: "正常",
-    2: "超期"
+    0: "正常",
+    1: "超期",
+    2: "注销"
   },
 
   "INTEGRALS_SUBJECT": {

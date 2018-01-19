@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Market, Shop} from "./shop-list.model";
 import {ShopListService} from "./shop-list.service";
 import {Router} from "@angular/router";
+import {dicts} from "../../thurder-ng/models/dictionary";
+import {AuthorizationService} from "rebirth-permission";
+import {StorageService} from "rebirth-storage";
 
 @Component({
   selector: 'app-shop-list',
@@ -12,26 +15,34 @@ import {Router} from "@angular/router";
 export class ShopListComponent implements OnInit {
 
   constructor(private shopListService: ShopListService,
-              private router: Router) { }
+              private router: Router,
+              private authorizationService: AuthorizationService,
+              private storageService: StorageService) { }
 
-  operatorId: number = 2
+  operator: any
   markets: Market[] = []
   shops: Shop[]
+  shopStatus = dicts["SHOP_STATUS"]
+  shopNum: number
   ngOnInit() {
-    this.getShopList(this.operatorId)
+    this.operator = this.authorizationService.getCurrentUser()
+    console.log(this.operator)
+    // this.getShopList(this.operator.userId)
+    this.getShopList(null)
   }
 
   getShopList(oid) {
     this.shopListService.getShops(oid).subscribe(
       (shops) => {
-        // console.log(shops)
+        console.log(shops)
         this.shops = shops
-        this.formatMarkets(this.shops)
+        this.storageService.sessionStorage.setItem("shopLength", shops.length.toString())
+        shops.length > 0 && this.formatMarkets(this.shops)
       }
     )
   }
 
-  //商户列表归类为市场列表
+  // 商户列表归类为市场列表
   formatMarkets(shops){
     let arr = []
     let o = {
@@ -56,13 +67,12 @@ export class ShopListComponent implements OnInit {
         }
       }
     }
-    // console.log(arr)
     this.markets = arr
   }
 
-
   enter(shopId) {
-    console.log("进入Id为" + shopId + "的商户")
-    this.router.navigateByUrl('shop/analysis')
+    this.storageService.sessionStorage.setItem("shopId", shopId.toString())
+    this.router.navigate(['shop/water'])
   }
+
 }

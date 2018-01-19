@@ -8,8 +8,8 @@
         <div class="weui-cell__bd">
           <p>{{integralsDict[integral.subject] || "其他积分"}}</p>
         </div>
-        <div class="weui-cell__ft integral-in">
-          <span style="color: #ff0000;">
+        <div class="weui-cell__ft">
+          <span [ngClass]="{'text-red': integral.amount > 0,'text-green': integral.amount < 0}">
             <span>{{integral.amount}}</span>
           </span>
         </div>

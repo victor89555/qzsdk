@@ -1,11 +1,11 @@
 .market-list {
   padding: 15px;
-  font-size: 16px;
 }
 
 .market {
   border: 1px solid #dddddd;
   background: #FFFFFF;
+  border-radius: 5px;
 }
 
 .market + .market {
@@ -20,7 +20,6 @@
 }
 
 .market .market_bd {
-
 }
 
 .shop {
@@ -36,9 +35,16 @@
 }
 
 .shop .shop_row .shop_hd {
-
 }
 .shop .shop_row .shop_bd {
   flex: 1;
   text-align: right;
+}
+
+.shop-status,.shop-term {
+  font-size: 14px;
+}
+
+.weui-btn_mini {
+  line-height: 1.8 !important;
 }

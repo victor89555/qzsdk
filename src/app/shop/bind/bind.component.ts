@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {VcodeService} from "../../users/share/service/vcode.service";
+import {VcodeService} from "../../shared/vcode.service";
 import {
   FormGroup,
   FormControl,
@@ -17,6 +17,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./bind.component.css'],
   providers: [VcodeService, BindService,ToastService]
 })
+
 export class BindComponent implements OnInit {
 
   constructor(private vcodeService: VcodeService,
@@ -24,22 +25,25 @@ export class BindComponent implements OnInit {
               private toastService: ToastService,
               private router: Router) { }
 
-  isDisabled: boolean = false
+  isCounting: boolean = false
   btnName:string = '获取验证码'
   verifyCode: string
 
-
+  // 表单
   bindForm: FormGroup
   mobileControl = new FormControl('', [Validators.required, Validators.pattern(RegExpDict["MOBILE"])])
   vcodeControl = new FormControl('', [Validators.required])
 
+
   ngOnInit() {
+    // 表单规则
     this.bindForm = new FormGroup({
       mobile: this.mobileControl,
       vcode: this.vcodeControl
     })
   }
 
+  // 获取验证码
   getVCode() {
     console.log(this.mobileControl)
     if(this.mobileControl.valid) {
@@ -54,13 +58,13 @@ export class BindComponent implements OnInit {
 
   //倒计时
   doCountDown() {
-    this.isDisabled = true
+    this.isCounting = true
     let t = 60
     this.btnName = t + 's'
     let timer = setInterval(() => {
       if(t-- <= 0){
         clearInterval(timer)
-        this.isDisabled = false
+        this.isCounting = false
         this.btnName = '获取验证码'
       }else {
         this.btnName = t + 's'
@@ -68,23 +72,30 @@ export class BindComponent implements OnInit {
     },1000)
   }
 
-  doBind() {
-    this.checkVcode(()=>{
-      let json = {
-        wechatOpenId:"1",
-        mobile: this.mobileControl.value
-      }
-      this.bindService.bindOperator(json).subscribe(
-        (res) => {
-          console.log(res)
-          this.toastService.success("绑定成功！").hide.subscribe(()=>{
-            this.router.navigate(['shop/list'],{skipLocationChange: true})
-          })
-        }
-      )
-    })
+  // 绑定按钮
+  doSubmit() {
+    if(this.mobileControl.valid && this.vcodeControl.valid) {
+      this.checkVcode(this.doBind.bind(this))
+      // this.doBind()
+    }
   }
 
+  doBind() {
+    let json = {
+      mobile: this.mobileControl.value
+    }
+    this.bindService.bindOperator(json).subscribe(
+      (user) => {
+        console.log(user)
+        // 绑定接口
+        this.toastService.success("绑定成功！").hide.subscribe(()=>{
+          this.router.navigate(['shop/list'],{skipLocationChange: true})
+        })
+      }
+    )
+  }
+
+  // 验证码校验
   checkVcode(cb) {
     let json = {
       mobile: this.mobileControl.value,

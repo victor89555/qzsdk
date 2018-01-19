@@ -1,6 +1,8 @@
-export class water {
-  shop_id?: string;
-  shop_name?: number;
-  belong_date: number;
-  amount: string;
+export class Water {
+  marketId: number
+  reportDate: string
+  shopId: number
+  totalMoneyAmount: number
+  totalOrderAmount: number
+  totalOrigMoneyAmount: number
 }

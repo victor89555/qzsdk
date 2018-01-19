@@ -39,6 +39,7 @@ export class WechatService extends RebirthHttp {
       currentUser.name = data.userName
       currentUser.token = data.token
       currentUser.roles = data.resources
+      currentUser.headImgUrl = data.headImgUrl
       return currentUser
     })
   }

@@ -4,16 +4,16 @@
     <!-- 日期区间搜索 -->
     <div class="time-interval">
       <div class="time-box">
-        <input type="text" class="weui-input">
+        <input type="date" class="weui-input" [(ngModel)]="beginTime">
       </div>
       <div class="sign-box">-</div>
       <div class="time-box">
-        <input type="text" class="weui-input">
+        <input type="date" class="weui-input" [(ngModel)]="endTime">
       </div>
       <div class="btn-box">
-        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">查询</a>
+        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" (click)="loadWaterList()">查询</a>
       </div>
-      <a routerLink="/shop/analysis" class="toggle-box"><img src="./assets/img/icon2/vatility-g.png" alt=""></a>
+      <a routerLink="/shop/analysis" class="toggle-box"><img src="./assets/img/icon2/vatility-g.png"></a>
     </div>
     
     <!-- 流水列表 -->
@@ -22,9 +22,9 @@
       <div *ngFor="let item of waterList" class="weui-cell">
         <div class="weui-cell__hd"></div>
         <div class="weui-cell__bd">
-          <p>{{item.belong_date}}</p>
+          <p>{{item.reportDate}}</p>
         </div>
-        <div class="weui-cell__ft integral-in">￥{{item.amount}}</div>
+        <div class="weui-cell__ft integral-in">￥{{item.totalMoneyAmount}}</div>
       </div>
       
     </div>

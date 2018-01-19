@@ -8,6 +8,7 @@ import {NotifyService, RebirthNGConfig} from 'rebirth-ng';
 import {HttpErrorResponse} from '@angular/common/http';
 import {WechatService} from "./shared/wechat.service"
 import {WindowRef} from "./thurder-ng/support/window-ref.service"
+import {ToastService} from "ngx-weui";
 
 @Component({
   selector: 'app-root',
@@ -90,11 +91,13 @@ export class AppComponent {
             //todo 转到商户绑定页面
             this.router.navigateByUrl("/shop/bind")
           }
-          // this.alertBoxService.placement("top")
-          // this.alertBoxService.open({
-          //   type: 'danger',
-          //   html: res.error.msg || "Error！"
-          // }, 5000);
+
+          this.alertBoxService.placement("top")
+          this.alertBoxService.open({
+            type: 'danger',
+            html: res.error.msg || "Error！"
+          }, 5000);
+
         }
       });
   }

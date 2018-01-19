@@ -13,7 +13,7 @@ export class ShopListService extends RebirthHttp{
   }
 
   @GET("shops")
-  getShops(@Query("operatorId") operatorId: number): Observable<Shop[]> {
+  getShops(@Query("operatorId") operatorId: number = null): Observable<Shop[]> {
     return null;
   }
 

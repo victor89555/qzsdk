@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private vcodeService: VcodeService,
               private registerService: RegisterService,
-              private authorizationService:AuthorizationService,
+              private authorizationService: AuthorizationService,
               private toastService: ToastService,
               private router: Router) { }
 
@@ -31,12 +31,11 @@ export class RegisterComponent implements OnInit {
   verifyCode: string
   registerForm: FormGroup
   btnName: any = '获取验证码'
-  isDisabled: boolean = false
+  isCounting: boolean = false
   nameControl = new FormControl('', [Validators.required])
   mobileControl = new FormControl('', [Validators.required, Validators.pattern(new RegExp(RegExpDict["MOBILE"]))])
   vcodeControl = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)])
   agreeControl = new FormControl(false, [Validators.required])
-
 
   ngOnInit() {
     this.registerService.getInfo().subscribe(
@@ -106,13 +105,13 @@ export class RegisterComponent implements OnInit {
 
   //倒计时
   doCountDown() {
-    this.isDisabled = true
+    this.isCounting = true
     let t = 60
     this.btnName = t + 's'
     let timer = setInterval(() => {
-      if(t-- <= 0){
+      if(t-- <= 0) {
         clearInterval(timer)
-        this.isDisabled = false
+        this.isCounting = false
         this.btnName = '获取验证码'
       }else {
         this.btnName = t + 's'
