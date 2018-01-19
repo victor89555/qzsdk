@@ -27,7 +27,7 @@
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box" echarts [options]="productOption"></div>
+                <div class="chart-box" echarts [options]="productOption" [merge]="productMerge"></div>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box" echarts [options]="timeOption"></div>
+                <div class="chart-box" echarts [options]="timeOption" [merge]="timeMerge"></div>
               </div>
             </div>
           </div>

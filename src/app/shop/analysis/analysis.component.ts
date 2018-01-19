@@ -17,46 +17,34 @@ export class AnalysisComponent implements OnInit {
   nowTime: number = new Date().getTime()
   beginTime: string = null
   endTime: string = null
+  productMerge:any
   productOption: any = {
     title: {
       left: '10px',
       text: '商户交易统计产品维度'
     },
     legend: {
-      x : 'center',
-      y : 'bottom',
+      x: 'center',
+      y: 'bottom',
       data: []
     },
-    calculable : true,
-    series : [
-      { name:'销售数量',
+    series: [
+      {
+        name:'name',
         type:'pie',
-        radius : [10, 50],
         roseType : 'area',
         data:[]
       }
     ]
   }
+  timeMerge:any
   timeOption:any = {
     title : {
       text: '商户交易统计时间维度',
       left: '10px'
     },
-    legend: {
-      top:'100px',
-      left:'10px',
-      data: []
-    },
-    grid: {
-      top:'100px',
-      left: '10px',
-      right: '20px',
-      bottom: '10px',
-      containLabel: true
-    },
     xAxis: {
-      type: 'category',
-      boundaryGap: false,
+      type: 'time',
       data: []
     },
     yAxis: {
@@ -66,10 +54,9 @@ export class AnalysisComponent implements OnInit {
     },
     series: [
       {
-        name:'干货营业额',
+        name:'name',
         type:'line',
-        showSymbol: false,
-        data:[]
+        data: []
       }
     ]
   }
@@ -102,6 +89,20 @@ export class AnalysisComponent implements OnInit {
     this.analysisService.getMarketProduct(this.shopId, bt, et).subscribe(
       (res: Shop_Report[]) => {
         console.log(res)
+        let legend = []
+        let series = []
+        res.map((item)=>{
+          legend.push(item.productName)
+          series.push({value:item.totalQty, name:item.productName})
+        })
+        console.log(legend,series)
+        this.productOption.legend.data = legend
+        this.productOption.series[0].data = series
+        this.productMerge = {
+          legend: this.productOption.legend,
+          series: this.productOption.series
+        }
+
       }
     )
 
@@ -109,6 +110,19 @@ export class AnalysisComponent implements OnInit {
     this.analysisService.getMarketTimeDay(this.shopId, bt, et).subscribe(
       (res: Shop_Report[]) => {
         console.log(res)
+        let xAxis = []
+        let series = []
+        res.map((item)=>{
+          xAxis.push(item.reportDate)
+          series.push(item.totalMoneyAmount)
+        })
+        this.timeOption.xAxis.data = xAxis
+        this.timeOption.series[0].data = series
+
+        this.timeMerge = {
+          xAxis: this.timeOption.xAxis,
+          series: this.timeOption.series
+        }
       }
     )
   }

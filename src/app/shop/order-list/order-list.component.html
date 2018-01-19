@@ -22,8 +22,8 @@
         <div class="weui-panel__bd">
           <div class="weui-panel weui-panel_access">
             <div class="weui-panel__hd">
-              <div class="weui-cell">
-                <div class="weui-cell__bd">{{order.memberName}}</div>
+              <div class="weui-cell" style="padding: 0">
+                <div class="weui-cell__bd" style="font-size: 15px; color: #333333;">{{order.memberName}}</div>
                 <div class="weui-cell__ft">{{order.tradingTime}}</div>
               </div>
             </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="weui-cell__ft">
                   <p style="font-size: 13px;color: #888888;">{{orderLine.qty}} {{orderLine.unitName}}</p>
-                  <p style="font-size: 15px;color: #888888;"><span>{{orderLine.totalAmount}}</span>元</p>
+                  <p style="font-size: 15px;color: #888888;"><span>{{orderLine.totalAmount}}</span> 元</p>
                 </div>
               </div>
         
@@ -47,7 +47,7 @@
           
               <div class="weui-cell">
                 <div class="weui-cell__bd"></div>
-                <div class="weui-cell__ft">总计：<span style="font-size: 15px;color: red;">{{order.totalAmount}}</span> 元</div>
+                <div class="weui-cell__ft" style="font-size: 15px; color: #333333;">总计：<span style="color: red;">{{order.totalAmount}} 元</span></div>
               </div>
         
             </div>
