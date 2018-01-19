@@ -14,6 +14,7 @@ import { NgxEchartsModule } from "ngx-echarts";
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { LoginComponent } from './login/login.component';
 import { BindComponent } from './bind/bind.component';
+import { ShopListBtnComponent } from './shared/shop-list-btn/shop-list-btn.component';
 
 @NgModule ({
   imports: [
@@ -33,6 +34,7 @@ import { BindComponent } from './bind/bind.component';
     ShopListComponent,
     LoginComponent,
     BindComponent,
+    ShopListBtnComponent,
   ]
 })
 

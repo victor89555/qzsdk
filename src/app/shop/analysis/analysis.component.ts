@@ -1,11 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { AnalysisService} from "./analysis.service";
-import {
-  Market_Time_Day,
-  Market_Time_Hour,
-  Market_Product,
-  Market_Shop
-} from "./analysis.model";
+import {Shop_Report} from "./analysis.model";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {StorageService} from "rebirth-storage";
+import {formatDate} from "../../thurder-ng/utils/date-util";
 
 @Component({
   selector: 'app-analysis',
@@ -15,12 +13,14 @@ import {
 })
 export class AnalysisComponent implements OnInit {
 
-  startTime: string = '2017-12-01'
-  endTime: string = '2017-12-31'
-  businessOption: any = {
+  shopId: number
+  nowTime: number = new Date().getTime()
+  beginTime: string = null
+  endTime: string = null
+  productOption: any = {
     title: {
       left: '10px',
-      text: '商户营业额统计'
+      text: '商户交易统计产品维度'
     },
     legend: {
       top:'100px',
@@ -67,9 +67,9 @@ export class AnalysisComponent implements OnInit {
       }
     ]
   }
-  greensOption:any = {
+  timeOption:any = {
     title : {
-      text: '商户菜品销量统计',
+      text: '商户交易统计时间维度',
       left: '10px'
     },
     legend: {
@@ -102,35 +102,41 @@ export class AnalysisComponent implements OnInit {
       }
     ]
   }
-  // ShopBusinessTurnoverStatistics = []
-  // SalesStatisticsOfVegetableProducts = []
-  constructor(private analysisService: AnalysisService) { }
+
+  constructor(private analysisService: AnalysisService,
+              private route: ActivatedRoute,
+              private storageService: StorageService,
+              private router: Router) { }
 
   ngOnInit() {
-    //获取所有统计数据
-    this.getService()
+    this.route.queryParams.subscribe((params: Params) => {
+      this.beginTime = params['beginTime']
+      this.endTime = params['endTime']
+    });
+    this.shopId = parseInt(this.storageService.sessionStorage.getItem("shopId"))
+    if(!this.shopId) {this.router.navigate(['shop/list'])}
+    else{
+      !this.beginTime && (this.beginTime = formatDate(new Date(this.nowTime - 604800000), "yyyy-MM-dd"))
+      !this.endTime && (this.endTime = formatDate(new Date(this.nowTime), "yyyy-MM-dd"))
+      //获取所有统计数据
+      this.getService()
+    }
   }
 
   getService() {
-    let st = this.startTime
-    let et = this.endTime
-    this.analysisService.getMarketShop(st, et).subscribe(
-      (res) => {
-        res.map(
-          (obj) => {
-            this.businessOption.legend.data.push(obj.shopName)
-            this.businessOption.series[0].data.push(obj)
-          }
-        )
-      }
-    )
-    this.analysisService.getMarketProduct(st, et).subscribe(
-      (res) => {
+    let bt = formatDate(new Date(this.beginTime), "yyyy-MM-dd")
+    let et = formatDate(new Date(this.endTime), "yyyy-MM-dd")
+
+    // 产品维度
+    this.analysisService.getMarketProduct(this.shopId, bt, et).subscribe(
+      (res: Shop_Report[]) => {
         console.log(res)
       }
     )
-    this.analysisService.getMarketTimeDay(st, et).subscribe(
-      (res) => {
+
+    // 时间维度
+    this.analysisService.getMarketTimeDay(this.shopId, bt, et).subscribe(
+      (res: Shop_Report[]) => {
         console.log(res)
       }
     )

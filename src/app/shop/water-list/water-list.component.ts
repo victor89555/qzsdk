@@ -17,8 +17,8 @@ export class WaterListComponent implements OnInit {
   shopId: number
   waterList : any[]
   nowTime: number = new Date().getTime()
-  beginTime: string
-  endTime: string
+  beginTime: string = null
+  endTime: string = null
 
   constructor(private waterListService: WaterListService,
               private route: ActivatedRoute,
@@ -26,18 +26,23 @@ export class WaterListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.route.queryParams.forEach((params: Params) => {
+      this.beginTime = params['beginTime']
+      this.endTime = params['endTime']
+    });
     this.shopId = parseInt(this.storageService.sessionStorage.getItem("shopId"))
     if(!this.shopId) {this.router.navigate(['shop/list'])}
     else{
-      this.beginTime = formatDate(new Date(this.nowTime - 604800000), "yyyy-MM-dd hh:mm:ss.S").slice(0,10)
-      this.endTime = formatDate(new Date(this.nowTime), "yyyy-MM-dd hh:mm:ss.S").slice(0,10)
-      console.log(this.shopId,this.beginTime, this.endTime)
+      !this.beginTime && (this.beginTime = formatDate(new Date(this.nowTime - 604800000), "yyyy-MM-dd"))
+      !this.endTime && (this.endTime = formatDate(new Date(this.nowTime), "yyyy-MM-dd"))
       this.loadWaterList()
     }
   }
 
   loadWaterList(){
-    this.waterListService.loadWaterList(this.shopId, this.beginTime, this.endTime).subscribe(
+    let bt = formatDate(new Date(this.beginTime), "yyyy-MM-dd")
+    let et = formatDate(new Date(this.endTime), "yyyy-MM-dd")
+    this.waterListService.loadWaterList(this.shopId, bt, et).subscribe(
       (list) => {
         this.waterList = list
       }

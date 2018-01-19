@@ -75,8 +75,8 @@ export class BindComponent implements OnInit {
   // 绑定按钮
   doSubmit() {
     if(this.mobileControl.valid && this.vcodeControl.valid) {
-      this.checkVcode(this.doBind.bind(this))
-      // this.doBind()
+      // this.checkVcode(this.doBind.bind(this))
+      this.doBind()
     }
   }
 

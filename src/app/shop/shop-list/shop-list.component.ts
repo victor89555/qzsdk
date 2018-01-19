@@ -19,24 +19,20 @@ export class ShopListComponent implements OnInit {
               private authorizationService: AuthorizationService,
               private storageService: StorageService) { }
 
-  operator: any
   markets: Market[] = []
   shops: Shop[]
   shopStatus = dicts["SHOP_STATUS"]
-  shopNum: number
+
   ngOnInit() {
-    this.operator = this.authorizationService.getCurrentUser()
-    console.log(this.operator)
-    // this.getShopList(this.operator.userId)
-    this.getShopList(null)
+    this.getShopList()
   }
 
-  getShopList(oid) {
-    this.shopListService.getShops(oid).subscribe(
+  getShopList() {
+    this.shopListService.getShops().subscribe(
       (shops) => {
         console.log(shops)
         this.shops = shops
-        this.storageService.sessionStorage.setItem("shopLength", shops.length.toString())
+        this.storageService.sessionStorage.setItem("shopNum", shops.length.toString())
         shops.length > 0 && this.formatMarkets(this.shops)
       }
     )

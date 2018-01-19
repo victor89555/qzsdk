@@ -1,12 +1,12 @@
 {
   "env": "dev",
   "api": {
-    "host": "http://market-cus.djws.com.cn/api"
+    "host": "http://market-cus-test.djws.com.cn/api"
   },
   "wechat": {
     "appId": "wx66f34ffcf8f805bf"
   },
   "web": {
-    "host": "http://market-cusfe.djws.com.cn"
+    "host": "http://market-cusfe-test.djws.com.cn"
   }
 }
