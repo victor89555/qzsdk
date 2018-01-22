@@ -13,10 +13,6 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {WechatService} from "./shared/wechat.service";
 import {WeUiModule} from "ngx-weui";
 
-
-import {TreeviewModule} from "ngx-treeview";
-import {TestModule} from "./test/test.module";
-
 @NgModule({
   declarations: [
     AppComponent
@@ -28,12 +24,10 @@ import {TestModule} from "./test/test.module";
     CoreModule,
     UsersModule,
     ShopModule,
-    TestModule,
     ThurderNGModule,
     NgxEchartsModule,
     RouterModule.forRoot(routes),
     WeUiModule.forRoot(),
-    TreeviewModule.forRoot()
   ],
   providers: [
     WechatService

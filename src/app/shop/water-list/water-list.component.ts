@@ -4,7 +4,6 @@ import {WaterListService} from "./water-list.service";
 import {formatDate} from "../../thurder-ng/utils/date-util";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {StorageService} from "rebirth-storage";
-import {NeedShopIdService} from "../../shared/needShopId.service";
 
 @Component({
   selector: 'app-water-list',
