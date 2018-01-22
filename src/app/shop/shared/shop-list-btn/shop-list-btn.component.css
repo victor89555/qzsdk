@@ -1,0 +1,11 @@
+.shop-list-icon {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  background-image: url("../../../../assets/img/icon2/shop-list3.png");
+  background-position: center;
+  background-size: 46px;
+  position: fixed;
+  right: 10px;
+  bottom: 60px;
+}
