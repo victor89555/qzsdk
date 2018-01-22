@@ -12,6 +12,7 @@ import {UserInfo} from "../personal-center/personal-center.model";
 import {AuthorizationService} from "rebirth-permission";
 import {ToastService} from "ngx-weui";
 import {Router} from "@angular/router";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,8 @@ export class RegisterComponent implements OnInit {
               private registerService: RegisterService,
               private authorizationService: AuthorizationService,
               private toastService: ToastService,
-              private router: Router) { }
+              private router: Router,
+              private titleService: Title) { }
 
   user: UserInfo
   verifyCode: string
@@ -38,6 +40,7 @@ export class RegisterComponent implements OnInit {
   agreeControl = new FormControl(false, [Validators.required])
 
   ngOnInit() {
+    this.titleService.setTitle('会员注册')
     this.registerService.getInfo().subscribe(
       (user)=>{
         console.log(user)

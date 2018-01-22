@@ -4,7 +4,7 @@ import {WaterListService} from "./water-list.service";
 import {formatDate} from "../../thurder-ng/utils/date-util";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {StorageService} from "rebirth-storage";
-import {NeedShopIdService} from "../../shared/needShopId.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-water-list',
@@ -23,9 +23,11 @@ export class WaterListComponent implements OnInit {
   constructor(private waterListService: WaterListService,
               private route: ActivatedRoute,
               private storageService: StorageService,
-              private router: Router) { }
+              private router: Router,
+              private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle('流水列表')
     this.route.queryParams.forEach((params: Params) => {
       this.beginTime = params['beginTime']
       this.endTime = params['endTime']
@@ -48,7 +50,5 @@ export class WaterListComponent implements OnInit {
       }
     )
   }
-
-
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserInfo } from "./personal-center.model";
 import { PersonalCenterService } from "./personal-center.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-personal-center',
@@ -13,9 +14,11 @@ export class PersonalCenterComponent implements OnInit {
   user: UserInfo
   defaultImgUrl: string = "../assets/img/默认头像.png"
 
-  constructor(private personalCenterService : PersonalCenterService) { }
+  constructor(private personalCenterService : PersonalCenterService,
+              private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle('个人中心')
     this.getUserInfo()
   }
 

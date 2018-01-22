@@ -6,6 +6,7 @@ import {InfomationService} from "./infomation.service";
 import {PersonalCenterService} from "../personal-center/personal-center.service";
 import {UserInfo} from "../personal-center/personal-center.model";
 import {ToastService} from "ngx-weui";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-information',
@@ -18,7 +19,8 @@ export class InformationComponent implements OnInit {
   constructor(private vcodeService: VcodeService,
               private informationService: InfomationService,
               private personalCenterService: PersonalCenterService,
-              private toastService: ToastService) { }
+              private toastService: ToastService,
+              private titleService: Title) { }
 
   infoForm: FormGroup
   userNameControl = new FormControl('', [Validators.required])
@@ -34,6 +36,7 @@ export class InformationComponent implements OnInit {
   btnName: any = '获取验证码'
 
   ngOnInit() {
+    this.titleService.setTitle('用户信息')
     this.personalCenterService.getPersonalInfo().subscribe(
       (user) => {
         this.userInfo = user

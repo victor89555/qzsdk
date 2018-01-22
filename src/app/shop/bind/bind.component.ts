@@ -10,6 +10,7 @@ import {RegExpDict} from "../../shared/reg.model";
 import {BindService} from "./bind.service";
 import {ToastService} from "ngx-weui";
 import {Router} from "@angular/router";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-bind',
@@ -23,7 +24,8 @@ export class BindComponent implements OnInit {
   constructor(private vcodeService: VcodeService,
               private bindService: BindService,
               private toastService: ToastService,
-              private router: Router) { }
+              private router: Router,
+              private titleService: Title) { }
 
   isCounting: boolean = false
   btnName:string = '获取验证码'
@@ -36,6 +38,7 @@ export class BindComponent implements OnInit {
 
 
   ngOnInit() {
+    this.titleService.setTitle('会员注册')
     // 表单规则
     this.bindForm = new FormGroup({
       mobile: this.mobileControl,
@@ -75,8 +78,7 @@ export class BindComponent implements OnInit {
   // 绑定按钮
   doSubmit() {
     if(this.mobileControl.valid && this.vcodeControl.valid) {
-      // this.checkVcode(this.doBind.bind(this))
-      this.doBind()
+      this.checkVcode(this.doBind.bind(this))
     }
   }
 
@@ -86,7 +88,7 @@ export class BindComponent implements OnInit {
     }
     this.bindService.bindOperator(json).subscribe(
       (user) => {
-        console.log(user)
+        // console.log(user)
         // 绑定接口
         this.toastService.success("绑定成功！").hide.subscribe(()=>{
           this.router.navigate(['shop/list'],{skipLocationChange: true})

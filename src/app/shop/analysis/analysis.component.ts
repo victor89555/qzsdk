@@ -4,15 +4,18 @@ import {Shop_Report} from "./analysis.model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {StorageService} from "rebirth-storage";
 import {formatDate} from "../../thurder-ng/utils/date-util";
+import {NgxEchartsService} from "ngx-echarts";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.css'],
-  providers: [AnalysisService]
+  providers: [AnalysisService, NgxEchartsService]
 })
 export class AnalysisComponent implements OnInit {
 
+  echarts = this.ngxEchartsService.echarts
   shopId: number
   nowTime: number = new Date().getTime()
   beginTime: string = null
@@ -46,7 +49,7 @@ export class AnalysisComponent implements OnInit {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: []
+      data: ['2017-01-01','2017-01-02','2017-01-03']
     },
     yAxis: {
       type: 'value',
@@ -66,7 +69,7 @@ export class AnalysisComponent implements OnInit {
         },
         areaStyle: {
           normal: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            color: new this.echarts.graphic.LinearGradient(0, 0, 0, 1, [{
               offset: 0,
               color: 'rgb(255, 158, 68)'
             }, {
@@ -83,9 +86,12 @@ export class AnalysisComponent implements OnInit {
   constructor(private analysisService: AnalysisService,
               private route: ActivatedRoute,
               private storageService: StorageService,
-              private router: Router) { }
+              private router: Router,
+              private ngxEchartsService: NgxEchartsService,
+              private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle('经营情况')
     this.route.queryParams.subscribe((params: Params) => {
       this.beginTime = params['beginTime']
       this.endTime = params['endTime']

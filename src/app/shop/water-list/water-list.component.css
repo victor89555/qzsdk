@@ -14,7 +14,11 @@
   flex: 1;
   border: 1px solid #dddddd;
 }
-
+.time-interval .time-box input{
+  min-width: 0;
+  max-width: none;
+  width: 85px;
+}
 .time-interval .sign-box {
   margin: 0 5px;
   line-height: 30px;

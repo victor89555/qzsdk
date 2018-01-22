@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Integral} from "./integral-list.model";
 import {IntegralListService} from "./integral-list.service";
-import {Page} from "../../thurder-ng/models/page.model";
 import {dicts} from "../../thurder-ng/models/dictionary";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-integral-list',
@@ -16,10 +16,11 @@ export class IntegralListComponent implements OnInit {
   integralsDict = dicts["INTEGRALS_SUBJECT"]
 
   constructor(
-    private integralListService : IntegralListService
-  ) {}
+    private integralListService : IntegralListService,
+    private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle('积分列表')
     this.getIntegralList()
   }
 

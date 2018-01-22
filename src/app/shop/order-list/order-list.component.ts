@@ -3,6 +3,7 @@ import { Order, OrderLine } from "./order-list.model";
 import { OrderListService } from "./order-list.service";
 import {StorageService} from "rebirth-storage";
 import {Router} from "@angular/router";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-order-list',
@@ -17,7 +18,7 @@ export class OrderListComponent implements OnInit {
   shopId: number
   beginTime: string = "2017-12-01"
   endTime: string = "2017-12-31"
-  pageSize: number = 3
+  pageSize: number = 10
   pageNum: number = 1
   isLastPage:boolean = false
   idLoading:boolean = false
@@ -25,9 +26,11 @@ export class OrderListComponent implements OnInit {
 
   constructor(private orderListService: OrderListService,
               private storageService: StorageService,
-              private router: Router) {}
+              private router: Router,
+              private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle('订单列表')
     this.shopId = parseInt(this.storageService.sessionStorage.getItem("shopId"))
     if(!this.shopId) {this.router.navigate(['shop/list'])}
     else{

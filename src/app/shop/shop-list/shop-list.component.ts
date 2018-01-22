@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {dicts} from "../../thurder-ng/models/dictionary";
 import {AuthorizationService} from "rebirth-permission";
 import {StorageService} from "rebirth-storage";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shop-list',
@@ -17,13 +18,15 @@ export class ShopListComponent implements OnInit {
   constructor(private shopListService: ShopListService,
               private router: Router,
               private authorizationService: AuthorizationService,
-              private storageService: StorageService) { }
+              private storageService: StorageService,
+              private titleService: Title) { }
 
   markets: Market[] = []
   shops: Shop[]
   shopStatus = dicts["SHOP_STATUS"]
 
   ngOnInit() {
+    this.titleService.setTitle('店铺列表')
     this.getShopList()
   }
 
