@@ -44,18 +44,37 @@ export class AnalysisComponent implements OnInit {
       left: '10px'
     },
     xAxis: {
-      type: 'time',
+      type: 'category',
+      boundaryGap: false,
       data: []
     },
     yAxis: {
       type: 'value',
-      splitLine: {show: false},
-      name:'纵坐标'
+      boundaryGap: [0, '100%']
     },
     series: [
       {
-        name:'name',
+        name:'商户交易统计时间维度',
         type:'line',
+        smooth: true,
+        symbol: 'none',
+        sampling: 'average',
+        itemStyle: {
+          normal: {
+            color: 'rgb(255, 70, 131)'
+          }
+        },
+        areaStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgb(255, 158, 68)'
+            }, {
+              offset: 1,
+              color: 'rgb(255, 70, 131)'
+            }])
+          }
+        },
         data: []
       }
     ]
