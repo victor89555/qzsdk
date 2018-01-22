@@ -14,7 +14,8 @@ export class OverlayService {
   private overlayRef: ComponentRef<OverlayComponent>;
   private overlayCount = 0;
 
-  constructor(private thurderNGConfig: ThurderNgConfig, private componentFactoryResolver: ComponentFactoryResolver,
+  constructor(private thurderNGConfig: ThurderNgConfig,
+              private componentFactoryResolver: ComponentFactoryResolver,
               private injector: Injector, private domSanitizer: DomSanitizer) {
   }
 

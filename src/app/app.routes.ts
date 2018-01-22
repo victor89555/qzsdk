@@ -13,10 +13,6 @@ export const routes: Routes = [
   {
     path: 'shop',
     loadChildren: 'app/shop/shop.module#ShopModule'
-  },
-  {
-    path: 'test',
-    loadChildren: 'app/test/test.module#TestModule'
   }
 ];
 

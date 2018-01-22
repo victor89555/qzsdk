@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import {LoadingService} from "./core/loading/loading.service";
 import {RebirthHttpProvider} from "rebirth-http";
 import {environment} from '../environments/environment';
-import {NotifyService, RebirthNGConfig} from 'rebirth-ng';
 import {HttpErrorResponse} from '@angular/common/http';
 import {WechatService} from "./shared/wechat.service"
 import {WindowRef} from "./thurder-ng/support/window-ref.service"
@@ -18,20 +17,15 @@ import {ToastService} from "ngx-weui";
 
 export class AppComponent {
 
-  constructor(private rebirthNGConfig: RebirthNGConfig,
-              private authorizationService: AuthorizationService,
-              private viewContainerRef: ViewContainerRef,
+  constructor(private authorizationService: AuthorizationService,
               private loadingService: LoadingService,
               private router: Router,
               private rebirthHttpProvider: RebirthHttpProvider,
-              private alertBoxService: NotifyService,
-              private wechatService: WechatService,
-              private winRef: WindowRef) {
+              private wechatService: WechatService) {
     this.applicationSetup();
   }
 
   private applicationSetup() {
-    this.rebirthNGConfig.rootContainer = this.viewContainerRef; // this.rebirthNGConfig.extend(REBIRTH_UI_I18N_ZHCN); i18n
     this.apiSetup();
   }
 
@@ -92,11 +86,11 @@ export class AppComponent {
             this.router.navigateByUrl("/shop/bind")
           }
 
-          this.alertBoxService.placement("top")
-          this.alertBoxService.open({
-            type: 'danger',
-            html: res.error.msg || "Error！"
-          }, 5000);
+          // this.alertBoxService.placement("top")
+          // this.alertBoxService.open({
+          //   type: 'danger',
+          //   html: res.error.msg || "Error！"
+          // }, 5000);
 
         }
       });
