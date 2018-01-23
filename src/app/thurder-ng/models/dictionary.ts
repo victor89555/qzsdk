@@ -36,5 +36,11 @@ export const dicts = {
 
   "ORDER_STATUS": {
     0: "已付款"
-  }
+  },
+
+  "PAY_WAY": {
+    1: "现金",
+    2: "支付宝",
+    3: "微信支付"
+  },
 }

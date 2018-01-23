@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { OverlayService } from 'rebirth-ng';
+import { OverlayService} from "../../thurder-ng/components/overlay/overlay.service";
 
 @Injectable()
 export class LoadingService {
 
-  constructor(private overlayService: OverlayService) {
-
-  }
+  constructor(private overlayService: OverlayService) {}
 
   show() {
     return new Promise<LoadingService>((resolve => {

@@ -3,6 +3,7 @@ export class Order {
   shopName: string;
   status: number;
   tradingTime: string;
+  payWay: number
   orderLines: OrderLine[] = []
 }
 

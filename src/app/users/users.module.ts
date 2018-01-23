@@ -16,6 +16,8 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { FollowWechatComponent } from './follow-wechat/follow-wechat.component';
 import {WeUiModule} from "ngx-weui";
+import {ThurderNGModule} from "../thurder-ng/thurder-ng.module";
+import {DictConvertPipe} from "../thurder-ng/pipes/dict-convert.pipe";
 
 @NgModule({
   imports: [
@@ -23,6 +25,7 @@ import {WeUiModule} from "ngx-weui";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ThurderNGModule,
     WeUiModule.forRoot(),
     RouterModule.forChild(routes)
   ],
@@ -36,7 +39,8 @@ import {WeUiModule} from "ngx-weui";
     InformationComponent,
     LoginComponent,
     RegisterComponent,
-    FollowWechatComponent
+    FollowWechatComponent,
+    DictConvertPipe
   ]
 })
 export class UsersModule {}

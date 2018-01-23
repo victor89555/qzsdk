@@ -15,6 +15,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { LoginComponent } from './login/login.component';
 import { BindComponent } from './bind/bind.component';
 import { ShopListBtnComponent } from './shared/shop-list-btn/shop-list-btn.component';
+import {ThurderNGModule} from "../thurder-ng/thurder-ng.module";
 
 @NgModule ({
   imports: [
@@ -22,6 +23,7 @@ import { ShopListBtnComponent } from './shared/shop-list-btn/shop-list-btn.compo
     HttpClientModule,
     NgxEchartsModule,
     FormsModule,
+    ThurderNGModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],

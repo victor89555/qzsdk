@@ -4,6 +4,7 @@ import { OrderListService } from "./order-list.service";
 import {StorageService} from "rebirth-storage";
 import {Router} from "@angular/router";
 import { Title } from '@angular/platform-browser';
+import {dicts} from "../../thurder-ng/models/dictionary";
 
 @Component({
   selector: 'app-order-list',
