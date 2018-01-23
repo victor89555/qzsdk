@@ -27,6 +27,7 @@ export class WaterListComponent implements OnInit {
               private titleService: Title) { }
 
   ngOnInit() {
+    console.log(window.innerHeight)
     this.titleService.setTitle('流水列表')
     this.route.queryParams.forEach((params: Params) => {
       this.beginTime = params['beginTime']

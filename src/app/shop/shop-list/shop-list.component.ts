@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Market, Shop} from "./shop-list.model";
 import {ShopListService} from "./shop-list.service";
 import {Router} from "@angular/router";
-import {dicts} from "../../thurder-ng/models/dictionary";
 import {AuthorizationService} from "rebirth-permission";
 import {StorageService} from "rebirth-storage";
 import { Title } from '@angular/platform-browser';
@@ -23,7 +22,6 @@ export class ShopListComponent implements OnInit {
 
   markets: Market[] = []
   shops: Shop[]
-  shopStatus = dicts["SHOP_STATUS"]
 
   ngOnInit() {
     this.titleService.setTitle('店铺列表')
@@ -71,7 +69,7 @@ export class ShopListComponent implements OnInit {
 
   enter(shopId) {
     this.storageService.sessionStorage.setItem("shopId", shopId.toString())
-    this.router.navigate(['shop/water'])
+    this.router.navigateByUrl("/shop/water")
   }
 
 }

@@ -141,15 +141,14 @@ button.close {
   -webkit-appearance: none;
 }
 
-[_nghost-c3]{display:block;width:100%;position:fixed;z-index:9999}
-.alert-top[_nghost-c3]{left:0;top:0}
-.alert-top-right[_nghost-c3]{width:40%;min-width:200px;right:10px;top:10px}
-.alert-bottom[_nghost-c3]{left:0;bottom:0}
-.alert-bottom-right[_nghost-c3]{width:40%;min-width:200px;right:10px;bottom:10px}
-.alert-center[_nghost-c3]{width:40%;min-width:200px;left:30%;top:20%}
-[_nghost-c3].alert{margin:0 0 5px 0}
-.alert-bottom[_nghost-c3] .alert,
-.alert-top[_nghost-c3] .alert{border-radius:0}
+.alert-top{left:0;top:0}
+.alert-top-right{width:40%;min-width:200px;right:10px;top:10px}
+.alert-bottom{left:0;bottom:0}
+.alert-bottom-right{width:40%;min-width:200px;right:10px;bottom:10px}
+.alert-center{width:40%;min-width:200px;left:30%;top:20%}
+.alert{margin:0 0 5px 0}
+.alert-bottom .alert,
+.alert-top .alert{border-radius:0}
 
 .btn-search {
   display: inline-block;

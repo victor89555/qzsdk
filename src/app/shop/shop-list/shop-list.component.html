@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="shop_row">
-              <div class="shop_hd"><span class="shop-status">状态：<span [ngClass]="{'text-green': shop.status == 0,'text-red': shop.status == 1, 'text-gray': shop.status == 2}">{{shopStatus[shop.status]}}</span></span></div>
+              <div class="shop_hd"><span class="shop-status">状态：<span [ngClass]="{'text-green': shop.status == 0,'text-red': shop.status == 1, 'text-gray': shop.status == 2}">{{shop.status|dictConvert:'SHOP_STATUS'}}</span></span></div>
               <div class="shop_bd"><span class="shop-term">{{shop.beginTime}} 至 {{shop.endTime}}</span></div>
             </div>
           </div>

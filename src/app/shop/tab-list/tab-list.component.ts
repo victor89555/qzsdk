@@ -14,7 +14,6 @@ export class TabListComponent implements OnInit {
 
   ngOnInit() {
     this.path = this.Location.path().slice(6).split("?")[0]
-    console.log(this.path)
   }
 
 }

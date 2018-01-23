@@ -4,7 +4,7 @@ import { OrderListService } from "./order-list.service";
 import {StorageService} from "rebirth-storage";
 import {Router} from "@angular/router";
 import { Title } from '@angular/platform-browser';
-import {dicts} from "../../thurder-ng/models/dictionary";
+import {formatDate} from "../../thurder-ng/utils/date-util";
 
 @Component({
   selector: 'app-order-list',
@@ -17,8 +17,9 @@ export class OrderListComponent implements OnInit {
 
   orders: Order[] = []
   shopId: number
-  beginTime: string = "2017-12-01"
-  endTime: string = "2017-12-31"
+  nowTime = new Date().getTime()
+  beginTime: string
+  endTime: string
   pageSize: number = 10
   pageNum: number = 1
   isLastPage:boolean = false
@@ -32,6 +33,8 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('订单列表')
+    this.beginTime = formatDate(this.threeMonthAgo(), 'yyyy-MM-dd')
+    this.endTime = formatDate(new Date(this.nowTime), 'yyyy-MM-dd')
     this.shopId = parseInt(this.storageService.sessionStorage.getItem("shopId"))
     if(!this.shopId) {this.router.navigate(['shop/list'])}
     else{
@@ -68,5 +71,14 @@ export class OrderListComponent implements OnInit {
         }
       }
     )
+  }
+
+  threeMonthAgo() {
+    let now = new Date(this.nowTime)
+    let year: number = now.getFullYear()
+    let month: number = now.getMonth() + 1 - 3
+    let date: number = now.getDate()
+    month < 1 && year-- && (month += 12)
+    return new Date(year.toString() + '-' + month.toString() + '-' + date.toString())
   }
 }
