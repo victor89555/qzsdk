@@ -5,9 +5,8 @@ import {LoadingService} from "./core/loading/loading.service";
 import {RebirthHttpProvider} from "rebirth-http";
 import {environment} from '../environments/environment';
 import {HttpErrorResponse} from '@angular/common/http';
-import {WechatService} from "./shared/wechat.service"
-import {WindowRef} from "./thurder-ng/support/window-ref.service"
-import {ToastService} from "ngx-weui";
+import {WechatService} from "./shared/wechat.service";
+import {ThurderNgConfig} from "./thurder-ng/support/thurder-ng-config";
 
 @Component({
   selector: 'app-root',
@@ -21,11 +20,14 @@ export class AppComponent {
               private loadingService: LoadingService,
               private router: Router,
               private rebirthHttpProvider: RebirthHttpProvider,
-              private wechatService: WechatService) {
+              private wechatService: WechatService,
+              private viewContainerRef: ViewContainerRef,
+              private thurderNGConfig: ThurderNgConfig) {
     this.applicationSetup();
   }
 
   private applicationSetup() {
+    this.thurderNGConfig.rootContainer = this.viewContainerRef;
     this.apiSetup();
   }
 
