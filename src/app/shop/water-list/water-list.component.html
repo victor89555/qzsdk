@@ -11,7 +11,7 @@
         <input type="date" class="weui-input" [(ngModel)]="endTime">
       </div>
       <div class="btn-box">
-        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" (click)="loadWaterList()">查询</a>
+        <a href="javascript:;" class="btn-search" (click)="loadWaterList()"></a>
       </div>
       <a routerLink="/shop/analysis" [queryParams]="{beginTime: beginTime, endTime: endTime}" class="toggle-box"><img src="./assets/img/icon2/vatility-g.png"></a>
     </div>

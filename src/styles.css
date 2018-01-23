@@ -151,3 +151,42 @@ button.close {
 .alert-bottom[_nghost-c3] .alert,
 .alert-top[_nghost-c3] .alert{border-radius:0}
 
+.btn-search {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  background-image: url("../src/assets/img/icon2/search.png");
+  background-position: center;
+  background-size: 29px;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+}
+
+.time-interval {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  padding: 10px;
+  height: 30px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.time-interval .time-box {
+  flex: 1;
+  border: 1px solid #dddddd;
+}
+.time-interval .time-box input{
+  width: 100px;
+}
+.time-interval .sign-box {
+  margin: 0 5px;
+  line-height: 30px;
+}
+
+.time-interval .toggle-box img {
+  width: 30px;
+  margin-left: 10px;
+}

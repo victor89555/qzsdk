@@ -36,6 +36,7 @@ export class AnalysisComponent implements OnInit {
         name:'name',
         type:'pie',
         roseType : 'area',
+        radius: [0, '60%'],
         data:[]
       }
     ]
@@ -49,7 +50,7 @@ export class AnalysisComponent implements OnInit {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['2017-01-01','2017-01-02','2017-01-03']
+      data: []
     },
     yAxis: {
       type: 'value',
@@ -113,14 +114,12 @@ export class AnalysisComponent implements OnInit {
     // 产品维度
     this.analysisService.getMarketProduct(this.shopId, bt, et).subscribe(
       (res: Shop_Report[]) => {
-        // console.log(res)
         let legend = []
         let series = []
         res.map((item)=>{
           legend.push(item.productName)
           series.push({value:item.totalQty, name:item.productName})
         })
-        // console.log(legend,series)
         this.productOption.legend.data = legend
         this.productOption.series[0].data = series
         this.productMerge = {
@@ -134,7 +133,6 @@ export class AnalysisComponent implements OnInit {
     // 时间维度
     this.analysisService.getMarketTimeDay(this.shopId, bt, et).subscribe(
       (res: Shop_Report[]) => {
-        // console.log(res)
         let xAxis = []
         let series = []
         res.map((item)=>{
