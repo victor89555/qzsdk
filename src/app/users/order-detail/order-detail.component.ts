@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {OrderDetailService} from "./order-detail.service";
 import {OrderDetail} from "./order-detail.model";
-import {dicts} from "../../thurder-ng/models/dictionary";
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -20,7 +19,6 @@ export class OrderDetailComponent implements OnInit {
 
   orderDetailId: number
   orderDetail: OrderDetail
-  orderStatus = dicts["ORDER_STATUS"]
   ngOnInit() {
     this.titleService.setTitle('订单详情')
     this.route.params.forEach(

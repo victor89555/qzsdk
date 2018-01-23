@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Integral} from "./integral-list.model";
 import {IntegralListService} from "./integral-list.service";
-import {dicts} from "../../thurder-ng/models/dictionary";
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -13,7 +12,6 @@ import { Title } from '@angular/platform-browser';
 export class IntegralListComponent implements OnInit {
 
   integralList: Integral[] = []
-  integralsDict = dicts["INTEGRALS_SUBJECT"]
 
   constructor(
     private integralListService : IntegralListService,
