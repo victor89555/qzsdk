@@ -17,7 +17,6 @@ import {RegisterComponent} from "./register/register.component";
 import { FollowWechatComponent } from './follow-wechat/follow-wechat.component';
 import {WeUiModule} from "ngx-weui";
 import {ThurderNGModule} from "../thurder-ng/thurder-ng.module";
-import {DictConvertPipe} from "../thurder-ng/pipes/dict-convert.pipe";
 
 @NgModule({
   imports: [
@@ -39,8 +38,7 @@ import {DictConvertPipe} from "../thurder-ng/pipes/dict-convert.pipe";
     InformationComponent,
     LoginComponent,
     RegisterComponent,
-    FollowWechatComponent,
-    DictConvertPipe
+    FollowWechatComponent
   ]
 })
 export class UsersModule {}
