@@ -59,11 +59,11 @@
       </div>
     </div>
   
-    <div *ngIf="idLoading" class="weui-loadmore">
+    <div *ngIf="isLoading" class="weui-loadmore">
       <i class="weui-loading"></i>
       <span class="weui-loadmore__tips">正在加载</span>
     </div>
-    <div *ngIf="!idLoading" class="weui-loadmore weui-loadmore_line">
+    <div *ngIf="!isLoading" class="weui-loadmore weui-loadmore_line">
       <span *ngIf="!isLastPage" class="weui-loadmore__tips" (click)="loadMore()">加载更多</span>
       <span *ngIf="isLastPage" class="weui-loadmore__tips">没有更多了</span>
     </div>

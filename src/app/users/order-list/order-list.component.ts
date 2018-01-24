@@ -21,7 +21,7 @@ export class OrderListComponent implements OnInit {
   pageSize: number = 10
   pageNumber: number = 1
   isLastPage:boolean = false
-  idLoading:boolean = false
+  isLoading:boolean = false
   defaultImg = "./assets/img/jiucai.png"
 
   constructor(private orderListService: OrderListService,
@@ -39,11 +39,11 @@ export class OrderListComponent implements OnInit {
   }
 
   getOrderList() {
-    this.idLoading = true
+    this.isLoading = true
     this.orderListService.getAll(this.beginTime, this.endTime, this.pageSize, this.pageNumber).subscribe(
       (orders) => {
         console.log(orders)
-        this.idLoading = false
+        this.isLoading = false
         if(this.pageNumber > 1){
           this.orders.push(...orders)
         }else{

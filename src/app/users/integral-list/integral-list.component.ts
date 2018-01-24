@@ -12,6 +12,8 @@ import { Title } from '@angular/platform-browser';
 export class IntegralListComponent implements OnInit {
 
   integralList: Integral[] = []
+  isLoading: boolean = false
+  isEmpty:boolean = false
 
   constructor(
     private integralListService : IntegralListService,
@@ -23,10 +25,17 @@ export class IntegralListComponent implements OnInit {
   }
 
   getIntegralList() {
+    this.isLoading = true
     this.integralListService.getAll().subscribe(
       (integrals) => {
         console.log(integrals)
+        this.isLoading = false
         this.integralList = integrals
+        if(integrals.length == 0){
+          this.isEmpty = true
+        }else {
+          this.isEmpty = false
+        }
       }
     )
   }

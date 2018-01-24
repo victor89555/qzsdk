@@ -23,7 +23,7 @@ export class OrderListComponent implements OnInit {
   pageSize: number = 10
   pageNum: number = 1
   isLastPage:boolean = false
-  idLoading:boolean = false
+  isLoading:boolean = false
   isEmpty: boolean = false
   defaultImg = "./assets/img/jiucai.png"
 
@@ -53,11 +53,11 @@ export class OrderListComponent implements OnInit {
   }
 
   getOrderList() {
-    this.idLoading = true
+    this.isLoading = true
     this.orderListService.getOrders(this.shopId, this.beginTime, this.endTime, this.pageSize, this.pageNum).subscribe(
       (orders) => {
         console.log(orders)
-        this.idLoading = false
+        this.isLoading = false
         if(this.pageNum > 1){
           this.orders.push(...orders)
         }else{
