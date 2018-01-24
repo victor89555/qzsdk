@@ -7,6 +7,7 @@ import {environment} from '../environments/environment';
 import {HttpErrorResponse} from '@angular/common/http';
 import {WechatService} from "./shared/wechat.service";
 import {ThurderNgConfig} from "./thurder-ng/support/thurder-ng-config";
+import {StorageService} from "rebirth-storage";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
               private rebirthHttpProvider: RebirthHttpProvider,
               private wechatService: WechatService,
               private viewContainerRef: ViewContainerRef,
-              private thurderNGConfig: ThurderNgConfig) {
+              private thurderNGConfig: ThurderNgConfig,
+              private storageService: StorageService) {
     this.applicationSetup();
   }
 
@@ -66,10 +68,15 @@ export class AppComponent {
       })
       .addResponseErrorInterceptor((res: HttpErrorResponse) => {
         if ([401, 0].includes(res.status)) {
+          let origin = window.location.origin
           const errCode = res.error.errCode
           if (errCode == "INVALID_MEMBER_TOKEN") {
+            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
+            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
             window.location.href = this.wechatService.getMemberAuthUrl()
           } else if (errCode == "INVALID_OPERATOR_TOKEN") {
+            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
+            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
             window.location.href = this.wechatService.getOperatorAuthUrl()
           }
           // this.router.navigateByUrl('/login');
