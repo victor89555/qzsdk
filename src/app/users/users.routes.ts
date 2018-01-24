@@ -40,7 +40,7 @@ export const routes: Routes = [
         component: OrderListComponent
       },
       {
-        path: 'detail/:id',
+        path: 'detail',
         component: OrderDetailComponent
       },
       {

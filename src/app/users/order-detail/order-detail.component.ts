@@ -21,12 +21,10 @@ export class OrderDetailComponent implements OnInit {
   orderDetail: OrderDetail
   ngOnInit() {
     this.titleService.setTitle('订单详情')
-    this.route.params.forEach(
-      (params: Params) => {
-        console.log(params['id'])
-        this.orderDetailId = params['id']
-      }
-    )
+    this.route.queryParams.subscribe((params: Params) => {
+      console.log(params['orderId'])
+      this.orderDetailId = params['orderId']
+    });
 
     this.getOrderDetail()
   }

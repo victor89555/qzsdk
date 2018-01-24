@@ -26,6 +26,19 @@
     </a>
   </div>
   
+  <div *ngSwitchCase="'detail'" class="weui-tabbar">
+    <a routerLink="/users/orders" class="weui-tabbar__item weui-bar__item_on">
+      <span style="display: inline-block;position: relative;">
+        <img src="assets/img/icon2/compare-g.png" alt="" class="weui-tabbar__icon">
+      </span>
+      <p class="weui-tabbar__label">我的订单</p>
+    </a>
+    <a routerLink="/users/personal" class="weui-tabbar__item">
+      <img src="assets/img/icon2/person-h.png" alt="" class="weui-tabbar__icon">
+      <p class="weui-tabbar__label">个人中心</p>
+    </a>
+  </div>
+  
   <div *ngSwitchDefault class="weui-tabbar">
     <a routerLink="/users/orders" class="weui-tabbar__item">
       <span style="display: inline-block;position: relative;">

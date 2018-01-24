@@ -79,7 +79,7 @@ export class OrderListComponent implements OnInit {
   }
 
   orderDetail(id) {
-    this.router.navigateByUrl('users/detail/'+id)
+    this.router.navigateByUrl('users/detail?orderId='+id)
   }
 
   threeMonthAgo() {
