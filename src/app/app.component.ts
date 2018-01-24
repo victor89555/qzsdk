@@ -68,6 +68,7 @@ export class AppComponent {
         if ([401, 0].includes(res.status)) {
           const errCode = res.error.errCode
           if (errCode == "INVALID_MEMBER_TOKEN") {
+            // todo 保存下当前的路由全地址存入sessionStorage，当用户登录成功后跳转到该路由
             window.location.href = this.wechatService.getMemberAuthUrl()
           } else if (errCode == "INVALID_OPERATOR_TOKEN") {
             window.location.href = this.wechatService.getOperatorAuthUrl()
@@ -78,13 +79,13 @@ export class AppComponent {
           console.log(res.error.msg)
           const errCode = res.error.errCode
           if (errCode == "NO_FOLLOW_MP") {
-            //todo 转到公众号关注页面
+            // 转到公众号关注页面
             this.router.navigateByUrl("/user/follow")
           } else if (errCode == "NOT_MEMBER") {
-            //todo 转到会员注册页面
+            // 转到会员注册页面
             this.router.navigateByUrl("/user/register")
           } else if (errCode == "NOT_OPERATOR") {
-            //todo 转到商户绑定页面
+            // 转到商户绑定页面
             this.router.navigateByUrl("/shop/bind")
           }
 
