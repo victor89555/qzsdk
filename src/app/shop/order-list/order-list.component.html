@@ -46,7 +46,9 @@
             <div class="weui-panel__ft">
           
               <div class="weui-cell">
-                <div class="weui-cell__bd"></div>
+                <div class="weui-cell__bd">
+                  <p class="payway"><span class="payway{{order.payWay}}"></span></p>
+                </div>
                 <div class="weui-cell__ft" style="font-size: 15px; color: #333333;">总计：<span style="color: red;">{{order.totalAmount}} 元</span></div>
               </div>
         
@@ -62,6 +64,7 @@
       <div *ngIf="!idLoading" class="weui-loadmore weui-loadmore_line">
         <span *ngIf="!isLastPage" class="weui-loadmore__tips" (click)="loadMore()">加载更多</span>
         <span *ngIf="isLastPage" class="weui-loadmore__tips">没有更多了</span>
+        <span *ngIf="isEmpty" class="weui-loadmore__tips">没有数据</span>
       </div>
       
     </div>

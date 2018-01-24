@@ -19,6 +19,8 @@ export class WaterListComponent implements OnInit {
   nowTime: number = new Date().getTime()
   beginTime: string = null
   endTime: string = null
+  isEmpty: boolean = false
+  isLoading: boolean = false
 
   constructor(private waterListService: WaterListService,
               private route: ActivatedRoute,
@@ -43,11 +45,19 @@ export class WaterListComponent implements OnInit {
   }
 
   loadWaterList(){
+    this.isLoading = true
     let bt = formatDate(new Date(this.beginTime), "yyyy-MM-dd")
     let et = formatDate(new Date(this.endTime), "yyyy-MM-dd")
     this.waterListService.loadWaterList(this.shopId, bt, et).subscribe(
       (list) => {
+        this.isLoading = false
         this.waterList = list
+        console.log(list)
+        if(list.length == 0) {
+          this.isEmpty = true
+        }else {
+          this.isEmpty = false
+        }
       }
     )
   }

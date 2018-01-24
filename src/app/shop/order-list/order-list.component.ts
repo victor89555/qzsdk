@@ -24,6 +24,7 @@ export class OrderListComponent implements OnInit {
   pageNum: number = 1
   isLastPage:boolean = false
   idLoading:boolean = false
+  isEmpty: boolean = false
   defaultImg = "./assets/img/jiucai.png"
 
   constructor(private orderListService: OrderListService,
@@ -61,6 +62,11 @@ export class OrderListComponent implements OnInit {
           this.orders.push(...orders)
         }else{
           this.orders = orders
+          if(orders.length == 0){
+            this.isEmpty = true
+          }else {
+            this.isEmpty = false
+          }
         }
 
         if(orders.length < this.pageSize) {
