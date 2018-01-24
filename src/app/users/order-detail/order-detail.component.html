@@ -5,8 +5,7 @@
       <div class="info-header">
         <div class="info_title" style="font-size: 16px;font-weight: 800;">{{orderDetail?.shopName}}</div>
         <div class="info_bd">
-          <button class="weui-btn weui-btn_mini" disabled
-          [ngClass]="{'weui-btn_plain-primary': orderDetail?.status == 0}">{{orderDetail?.status|dictConvert:'ORDER_STATUS'}}</button>
+          <p class="payway"><span class="payway{{orderDetail?.payWay}}"></span></p>
         </div>
       </div>
       <div class="info-row">

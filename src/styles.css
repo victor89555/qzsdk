@@ -189,3 +189,26 @@ button.close {
   width: 30px;
   margin-left: 10px;
 }
+.payway {
+  font-size: 16px;
+}
+
+.payway span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: center;
+  position: relative;
+  top: 2px;
+}
+.payway1 {
+  background-image: url("./assets/img/icon2/packet-o.png");
+}
+.payway2 {
+  background-image: url("./assets/img/icon2/alipay.png");
+}
+.payway3 {
+  background-image: url("./assets/img/icon2/wx.png");
+}

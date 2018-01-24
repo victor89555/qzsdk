@@ -22,7 +22,10 @@
       <div class="weui-panel__bd" (click)="orderDetail(order.id)">
         <div class="weui-panel weui-panel_access">
           <div class="weui-panel__hd">
-            <p style="font-size: 15px;color: #333;">{{order.shopName}}</p>
+            <div class="weui-cell" style="padding: 0">
+              <div class="weui-cell__bd" style="font-size: 15px; color: #333333;">{{order.shopName}}</div>
+              <div class="weui-cell__ft" style="font-size: 13px;color: #888888;">{{order.tradingTime}}</div>
+            </div>
           </div>
           <div class="weui-panel__bd">
             
@@ -44,10 +47,10 @@
             
             <div class="weui-cell">
               <div class="weui-cell__bd">
-                <p style="font-size: 13px;color: #888888;">{{order.tradingTime}}</p>
+                <p class="payway"><span class="payway{{order.payWay}}"></span></p>
               </div>
               <div class="weui-cell__ft">
-                <p style="font-size: 15px;">支付方式：<span>{{order.payWay|dictConvert:"PAY_WAY"}}</span></p>
+                <div class="weui-cell__ft" style="font-size: 15px; color: #333333;">总计：<span style="color: red;">{{order.totalAmount}} 元</span></div>
               </div>
             </div>
             
