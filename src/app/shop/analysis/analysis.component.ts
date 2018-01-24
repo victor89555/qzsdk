@@ -24,7 +24,7 @@ export class AnalysisComponent implements OnInit {
   productOption: any = {
     title: {
       left: '10px',
-      text: '商户交易统计产品维度'
+      text: '菜品分布'
     },
     legend: {
       x: 'center',
@@ -44,7 +44,7 @@ export class AnalysisComponent implements OnInit {
   timeMerge: any
   timeOption: any = {
     title : {
-      text: '商户交易统计时间维度',
+      text: '销量走势',
       left: '10px'
     },
     xAxis: {
