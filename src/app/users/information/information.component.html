@@ -1,11 +1,6 @@
 <div class="weui-tab">
   <form class="weui-tab__panel" [formGroup]="infoForm">
   
-    <div class="tips">
-      <p>（微信用户名称）</p>
-      <p>欢迎您注册为新会员，注册成功立即奖励500积分！</p>
-    </div>
-  
     <div class="weui-cells weui-cells_form">
       <div class="weui-cell" [ngClass]="{'weui-cell_warn': userNameControl.dirty && userNameControl.invalid}">
         <div class="weui-cell__hd">
