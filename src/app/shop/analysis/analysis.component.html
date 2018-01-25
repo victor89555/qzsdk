@@ -21,13 +21,13 @@
   
       <div class="weui-panel weui-panel_access">
         <!--<div class="weui-panel__hd">-->
-          <!--<p style="text-align: center;">菜品分布</p>-->
+        <!--<p style="text-align: center;">销量走势</p>-->
         <!--</div>-->
         <div class="weui-panel__bd">
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box" echarts [options]="productOption" [merge]="productMerge"></div>
+                <div class="chart-box" echarts [options]="timeOption" [merge]="timeMerge"></div>
               </div>
             </div>
           </div>
@@ -36,13 +36,13 @@
   
       <div class="weui-panel weui-panel_access">
         <!--<div class="weui-panel__hd">-->
-          <!--<p style="text-align: center;">销量走势</p>-->
+        <!--<p style="text-align: center;">菜品分布</p>-->
         <!--</div>-->
         <div class="weui-panel__bd">
           <div class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__bd">
               <div class="weui-media-box__desc">
-                <div class="chart-box" echarts [options]="timeOption" [merge]="timeMerge"></div>
+                <div class="chart-box" echarts [options]="productOption" [merge]="productMerge"></div>
               </div>
             </div>
           </div>
