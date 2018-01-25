@@ -20,32 +20,14 @@ export class AnalysisComponent implements OnInit {
   nowTime: number = new Date().getTime()
   beginTime: string = null
   endTime: string = null
-  productMerge: any
-  productOption: any = {
-    title: {
-      left: '10px',
-      text: '菜品分布'
-    },
-    legend: {
-      x: 'center',
-      y: 'bottom',
-      data: []
-    },
-    series: [
-      {
-        name:'name',
-        type:'pie',
-        roseType : 'area',
-        radius: [0, '60%'],
-        data:[]
-      }
-    ]
-  }
   timeMerge: any
   timeOption: any = {
     title : {
       text: '销量走势',
       left: '10px'
+    },
+    grid: {
+      left: '15%'
     },
     xAxis: {
       type: 'category',
@@ -80,6 +62,32 @@ export class AnalysisComponent implements OnInit {
           }
         },
         data: []
+      }
+    ]
+  }
+  productMerge: any
+  productOption: any = {
+    title: {
+      left: '10px',
+      text: '菜品分布'
+    },
+    legend: {
+      x: 'center',
+      y: 'bottom',
+      data: []
+    },
+    series: [
+      {
+        name:'name',
+        type:'pie',
+        label: {
+          normal: {
+            formatter: '{b}:\n{d}%'
+          },
+        },
+        roseType : 'area',
+        radius: [0, '50%'],
+        data:[]
       }
     ]
   }
@@ -126,7 +134,6 @@ export class AnalysisComponent implements OnInit {
           legend: this.productOption.legend,
           series: this.productOption.series
         }
-
       }
     )
 
