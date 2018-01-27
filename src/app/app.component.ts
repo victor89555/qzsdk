@@ -86,10 +86,10 @@ export class AppComponent {
           const errCode = res.error.errCode
           if (errCode == "NO_FOLLOW_MP") {
             //转到公众号关注页面
-            this.router.navigateByUrl("/user/follow")
+            this.router.navigateByUrl("/users/follow")
           } else if (errCode == "NOT_MEMBER") {
             //转到会员注册页面
-            this.router.navigateByUrl("/user/register")
+            this.router.navigateByUrl("/users/register")
           } else if (errCode == "NOT_OPERATOR") {
             //转到商户绑定页面
             this.router.navigateByUrl("/shop/bind")
