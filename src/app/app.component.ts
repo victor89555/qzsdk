@@ -71,11 +71,11 @@ export class AppComponent {
           let origin = window.location.origin
           const errCode = res.error.errCode
           if (errCode == "INVALID_MEMBER_TOKEN") {
-            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
+            // 保存下当前的路由地址存入sessionStorage,当用户登录成功后跳转到该路由
             this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
             window.location.href = this.wechatService.getMemberAuthUrl()
           } else if (errCode == "INVALID_OPERATOR_TOKEN") {
-            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
+            // 保存下当前的路由地址存入sessionStorage,当用户登录成功后跳转到该路由
             this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
             window.location.href = this.wechatService.getOperatorAuthUrl()
           }

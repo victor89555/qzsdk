@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router"
 import {WechatService} from "../../shared/wechat.service"
-import { Title } from '@angular/platform-browser';
+import {Title} from '@angular/platform-browser';
 import {StorageService} from "rebirth-storage";
+import {AuthorizationService} from "rebirth-permission"
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute,
               private wechatService: WechatService,
               private titleService: Title,
+              private authorizationService: AuthorizationService,
               private storageService: StorageService) {
   }
 
@@ -27,7 +29,8 @@ export class LoginComponent implements OnInit {
           // 通过授权码调用微信登录认证
           this.wechatService.operatorLogin(authCode).subscribe(
             (user) => {
-              //todo 应该进入用户最初访问的地址
+              this.authorizationService.setCurrentUser(user)
+              // 应该进入用户最初访问的地址
               this.router.navigateByUrl(this.storageService.sessionStorage.getItem('locationHref'))
             },
             () => {
