@@ -1,7 +1,6 @@
 <div class="weui-tab">
   <div class="weui-tab__panel">
-    
-    <div class="order-info">
+    <div class="order-info" *ngIf="!hideForm">
       <div class="info-header">
         <div class="info_title" style="font-size: 16px;font-weight: 800;">{{orderDetail?.shopName}}</div>
         <div class="info_bd">
@@ -38,9 +37,10 @@
         </div>
       </div>
     </div>
-  
+    <div class="order-info" *ngIf="hideForm">
+      {{tips}}
+    </div>
   </div>
-  
   <app-tab-list></app-tab-list>
 
 </div>
