@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class PersonalCenterComponent implements OnInit {
 
   user: UserInfo
-  defaultImgUrl: string = "../assets/img/默认头像.png"
+  defaultImgUrl: string = "../assets/img/default.png"
 
   constructor(private personalCenterService : PersonalCenterService,
               private titleService: Title) { }
