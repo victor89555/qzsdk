@@ -96,7 +96,7 @@ export class BindComponent implements OnInit {
         console.log(user);
         this.authorizationService.setCurrentUser(user);
         this.toastService.success("绑定成功！").hide.subscribe(() => {
-          this.router.navigate(['shop/list'], {skipLocationChange: true})
+          this.router.navigate(['shop/list'])
         })
       }
     )
