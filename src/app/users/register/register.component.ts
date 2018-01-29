@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
             console.log(user);
             this.authorizationService.setCurrentUser(user);
             this.toastService.success("注册成功！").hide.subscribe(()=>{
-              this.router.navigate(['users/orders'],{skipLocationChange: true})
+              this.router.navigate(['users/orders'])
             })
 
           }

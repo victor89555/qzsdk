@@ -91,7 +91,7 @@ export class BindComponent implements OnInit {
         // console.log(user)
         // 绑定接口
         this.toastService.success("绑定成功！").hide.subscribe(()=>{
-          this.router.navigate(['shop/list'],{skipLocationChange: true})
+          this.router.navigate(['shop/list'])
         })
       }
     )
