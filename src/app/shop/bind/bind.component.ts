@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {VcodeService} from "../../shared/vcode.service";
 import {
   FormGroup,
@@ -10,13 +10,14 @@ import {RegExpDict} from "../../shared/reg.model";
 import {BindService} from "./bind.service";
 import {ToastService} from "ngx-weui";
 import {Router} from "@angular/router";
-import { Title } from '@angular/platform-browser';
+import {Title} from '@angular/platform-browser';
+import {AuthorizationService} from "rebirth-permission"
 
 @Component({
   selector: 'app-bind',
   templateUrl: './bind.component.html',
   styleUrls: ['./bind.component.css'],
-  providers: [VcodeService, BindService,ToastService]
+  providers: [VcodeService, BindService, ToastService]
 })
 
 export class BindComponent implements OnInit {
@@ -25,10 +26,12 @@ export class BindComponent implements OnInit {
               private bindService: BindService,
               private toastService: ToastService,
               private router: Router,
-              private titleService: Title) { }
+              private authorizationService: AuthorizationService,
+              private titleService: Title) {
+  }
 
   isCounting: boolean = false
-  btnName:string = '获取验证码'
+  btnName: string = '获取验证码'
   verifyCode: string
 
   // 表单
@@ -49,7 +52,7 @@ export class BindComponent implements OnInit {
   // 获取验证码
   getVCode() {
     console.log(this.mobileControl)
-    if(this.mobileControl.valid) {
+    if (this.mobileControl.valid) {
       this.doCountDown()
       this.vcodeService.getVerifyCode(this.mobileControl.value).subscribe(
         (res) => {
@@ -65,19 +68,19 @@ export class BindComponent implements OnInit {
     let t = 60
     this.btnName = t + 's'
     let timer = setInterval(() => {
-      if(t-- <= 0){
+      if (t-- <= 0) {
         clearInterval(timer)
         this.isCounting = false
         this.btnName = '获取验证码'
-      }else {
+      } else {
         this.btnName = t + 's'
       }
-    },1000)
+    }, 1000)
   }
 
   // 绑定按钮
   doSubmit() {
-    if(this.mobileControl.valid && this.vcodeControl.valid) {
+    if (this.mobileControl.valid && this.vcodeControl.valid) {
       this.checkVcode(this.doBind.bind(this))
     }
   }
@@ -90,8 +93,10 @@ export class BindComponent implements OnInit {
       (user) => {
         // console.log(user)
         // 绑定接口
-        this.toastService.success("绑定成功！").hide.subscribe(()=>{
-          this.router.navigate(['shop/list'],{skipLocationChange: true})
+        console.log(user);
+        this.authorizationService.setCurrentUser(user);
+        this.toastService.success("绑定成功！").hide.subscribe(() => {
+          this.router.navigate(['shop/list'], {skipLocationChange: true})
         })
       }
     )
@@ -106,7 +111,7 @@ export class BindComponent implements OnInit {
     console.log(json);
     this.vcodeService.checkVerifyCode(json).subscribe(
       (res) => {
-        if(res){
+        if (res) {
           cb()
         }
       }

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {Body, GET, RebirthHttp} from "rebirth-http";
+import {Injectable} from '@angular/core';
+import {Body, GET, POST, RebirthHttp} from "rebirth-http";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 
@@ -10,7 +10,7 @@ export class BindService extends RebirthHttp {
     super(http)
   }
 
-  @GET("operators/bind")
+  @POST("operators/bind")
   bindOperator(@Body json: any): Observable<any> {
     return null
   }
