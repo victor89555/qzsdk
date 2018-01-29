@@ -50,7 +50,8 @@ export class AppComponent {
             setHeaders: {
               "X-Requested-With": "XMLHttpRequest",
               // "Content-Type": "application/json"
-            }
+            },
+            withCredentials: true
           });
         }
       })
@@ -71,12 +72,12 @@ export class AppComponent {
           let origin = window.location.origin
           const errCode = res.error.errCode
           if (errCode == "INVALID_MEMBER_TOKEN") {
-            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
-            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
+            // 保存下当前的路由地址存入sessionStorage,当用户登录成功后跳转到该路由
+            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin, ''))
             window.location.href = this.wechatService.getMemberAuthUrl()
           } else if (errCode == "INVALID_OPERATOR_TOKEN") {
-            // todo 保存下当前的路由全地址存入sessionStorage,当用户登录成功后跳转到该路由
-            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin,''))
+            // 保存下当前的路由地址存入sessionStorage,当用户登录成功后跳转到该路由
+            this.storageService.sessionStorage.setItem('locationHref', window.location.href.replace(origin, ''))
             window.location.href = this.wechatService.getOperatorAuthUrl()
           }
           // this.router.navigateByUrl('/login');
@@ -86,10 +87,10 @@ export class AppComponent {
           const errCode = res.error.errCode
           if (errCode == "NO_FOLLOW_MP") {
             //转到公众号关注页面
-            this.router.navigateByUrl("/user/follow")
+            this.router.navigateByUrl("/users/follow")
           } else if (errCode == "NOT_MEMBER") {
             //转到会员注册页面
-            this.router.navigateByUrl("/user/register")
+            this.router.navigateByUrl("/users/register")
           } else if (errCode == "NOT_OPERATOR") {
             //转到商户绑定页面
             this.router.navigateByUrl("/shop/bind")

@@ -2,6 +2,7 @@ export class OrderDetail {
   id: number
   shopName: string
   tradingTime: string
+  payWay: number
   status: number
   origAmount: number
   totalAmount: number
