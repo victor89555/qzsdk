@@ -42,6 +42,7 @@ export class InformationComponent implements OnInit {
         this.userInfo = user
         this.userNameControl.setValue(user.name)
         this.mobileControl.setValue(user.mobile)
+        user.addr && this.addrControl.setValue(user.addr)
       }
     )
     this.infoForm = new FormGroup({

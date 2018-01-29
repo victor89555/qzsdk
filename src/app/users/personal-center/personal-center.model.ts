@@ -7,5 +7,6 @@ export class UserInfo {
   "mobile": string;
   "name": string;
   "nickName": string;
+  "addr"?: string;
   "wechatOpenId": string;
 }
