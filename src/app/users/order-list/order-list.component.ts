@@ -22,7 +22,7 @@ export class OrderListComponent implements OnInit {
   pageNumber: number = 1
   isLastPage:boolean = false
   isLoading:boolean = false
-  defaultImg = "./assets/img/jiucai.png"
+  defaultImg = "./assets/img/default1.png"
 
   constructor(private orderListService: OrderListService,
               private router: Router,

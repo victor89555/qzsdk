@@ -25,7 +25,7 @@ export class OrderListComponent implements OnInit {
   isLastPage:boolean = false
   isLoading:boolean = false
   isEmpty: boolean = false
-  defaultImg = "./assets/img/jiucai.png"
+  defaultImg = "./assets/img/default1.png"
 
   constructor(private orderListService: OrderListService,
               private storageService: StorageService,
