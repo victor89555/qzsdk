@@ -17,6 +17,25 @@ import {StorageService} from "rebirth-storage";
 
 export class AppComponent {
 
+  showAlert: boolean = false;
+  errText: string = ''
+
+  private showAlertTest(err: string, time: number) {
+    console.log(err)
+    this.errText = err || "Error!"
+    this.showAlert = true
+    console.log("open")
+    let timer = setTimeout(()=>{
+      this.showAlert = false
+      clearTimeout(timer)
+    }, time || 3000)
+  }
+
+  private closeAlert() {
+    this.showAlert = false
+    console.log("close")
+  }
+
   constructor(private authorizationService: AuthorizationService,
               private loadingService: LoadingService,
               private router: Router,
@@ -96,11 +115,7 @@ export class AppComponent {
             this.router.navigateByUrl("/shop/bind")
           }
 
-          // this.alertBoxService.placement("top")
-          // this.alertBoxService.open({
-          //   type: 'danger',
-          //   html: res.error.msg || "Error！"
-          // }, 5000);
+          this.showAlertTest(res.error.msg, 5000)
 
         }
       });

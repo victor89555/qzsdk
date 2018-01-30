@@ -1,1 +1,5 @@
 <router-outlet></router-outlet>
+<div *ngIf="showAlert" class="err-alert">
+  <p>{{errText}}</p>
+  <a class="close" (click)="closeAlert()">X</a>
+</div>

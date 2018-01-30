@@ -1,0 +1,44 @@
+.err-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #d9534f;
+  color: #ffffff;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+
+.close {
+  float: right;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: none;
+  opacity: 0.4;
+  filter: alpha(opacity=20);
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}

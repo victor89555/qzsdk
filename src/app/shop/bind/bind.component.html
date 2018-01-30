@@ -2,7 +2,7 @@
   <form class="weui-tab__panel weui-cells_form" [formGroup]="bindForm">
     
     <div class="tips">
-      <p>{{user.name + "，您好！"}}</p>
+      <p>{{user?.name || "微信用户"}}，您好！</p>
       <p>请输入您在市场登记的手机号进行商户绑定。</p>
     </div>
     
