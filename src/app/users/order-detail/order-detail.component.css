@@ -1,4 +1,4 @@
-.order-info {
+.order-info, .order-busy {
   padding: 15px 10px;
   font-size: 14px;
 }
@@ -33,4 +33,28 @@
 
 .order-detail .detail_bd {
 
+}
+
+.order-busy {
+
+}
+.order-busy .content {
+  margin: 0 auto;
+  margin-top: 20%;
+  width: 50vw;
+}
+.order-busy .content .pic{
+  width: 50vw;
+  height: 50vw;
+  background-image: url("../../../assets/img/rocket.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.order-busy .content .tips {
+  margin-top: 20px;
+  width: 100%;
+  line-height: 20px;
+  text-align: center;
 }

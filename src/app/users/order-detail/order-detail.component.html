@@ -37,8 +37,11 @@
         </div>
       </div>
     </div>
-    <div class="order-info" *ngIf="hideForm">
-      {{tips}}
+    <div class="order-busy" *ngIf="hideForm">
+      <div class="content">
+        <div class="pic"></div>
+        <div class="tips">{{tips}}</div>
+      </div>
     </div>
   </div>
   <app-tab-list></app-tab-list>
