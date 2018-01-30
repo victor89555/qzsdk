@@ -30,6 +30,7 @@ export class BindComponent implements OnInit {
               private titleService: Title) {
   }
 
+  user: any
   isCounting: boolean = false
   btnName: string = '获取验证码'
   verifyCode: string
@@ -42,6 +43,11 @@ export class BindComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('会员注册')
+    this.bindService.getWXUser().subscribe(
+      (user) => {
+        this.user = user
+      }
+    )
     // 表单规则
     this.bindForm = new FormGroup({
       mobile: this.mobileControl,

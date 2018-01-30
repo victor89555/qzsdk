@@ -15,4 +15,9 @@ export class BindService extends RebirthHttp {
     return null
   }
 
+  @GET("operators/bind")
+  getWXUser(): Observable<any> {
+    return null
+  }
+
 }
